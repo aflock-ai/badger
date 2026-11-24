@@ -45,6 +45,12 @@ jobs:
         with:
           persist-credentials: false
       - uses: ./.github/actions/badger-bun
+      # The docs suite runs `go run` on docs/tools/configref, which needs the Go version its
+      # go.mod pins. The runner image ships an older Go and GOTOOLCHAIN=local stops a download.
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: docs/tools/configref/go.mod
+          cache-dependency-path: docs/tools/configref/go.mod
       # Tests create throwaway git repositories and commit into them.
       - run: |
           git config --global user.email "ci@badger.invalid"
