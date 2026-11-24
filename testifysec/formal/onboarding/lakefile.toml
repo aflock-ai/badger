@@ -1,0 +1,10 @@
+name = "badger-onboarding"
+version = "0.1.0"
+defaultTargets = ["Onboarding", "onboarding-vectors"]
+
+[[lean_lib]]
+name = "Onboarding"
+
+[[lean_exe]]
+name = "onboarding-vectors"
+root = "Main"

@@ -1,0 +1,100 @@
+{
+ "results": [
+  {
+   "id": 131073,
+   "key": "ds",
+   "name": "Demonstration Space",
+   "status": "current",
+   "type": "global",
+   "creator": {
+    "type": "anonymous",
+    "profilePicture": {
+     "path": "/confluence/s/-eo6txh/9112/NOCACHE/_/images/icons/profilepics/anonymous.svg",
+     "width": 48,
+     "height": 48,
+     "isDefault": true
+    },
+    "displayName": "Anonymous"
+   },
+   "creationDate": "2020-04-14T11:55:11.912+02:00",
+   "lastModifier": {
+    "type": "anonymous",
+    "profilePicture": {
+     "path": "/confluence/s/-eo6txh/9112/NOCACHE/_/images/icons/profilepics/anonymous.svg",
+     "width": 48,
+     "height": 48,
+     "isDefault": true
+    },
+    "displayName": "Anonymous"
+   },
+   "lastModificationDate": "2024-03-05T17:39:54.548+01:00",
+   "_links": {
+    "webui": "/spaces/ds/overview",
+    "self": "http://service.example.invalid/confluence/rest/api/space/ds"
+   },
+   "_expandable": {
+    "metadata": "",
+    "permissions": "",
+    "icon": "",
+    "description": "",
+    "retentionPolicy": "",
+    "homepage": "/rest/api/content/163841"
+   }
+  },
+  {
+   "id": 1114113,
+   "key": "ENG",
+   "name": "Engineering",
+   "status": "current",
+   "type": "global",
+   "creator": {
+    "type": "known",
+    "username": "admin",
+    "userKey": "ff808081908dfda301908dfe26760000",
+    "displayName": "admin",
+    "_links": {
+     "self": "http://service.example.invalid/confluence/rest/api/user?key=ff808081908dfda301908dfe26760000"
+    },
+    "_expandable": {
+     "profilePicture": "",
+     "status": ""
+    }
+   },
+   "creationDate": "2026-10-22T20:52:35.690+02:00",
+   "lastModifier": {
+    "type": "known",
+    "username": "admin",
+    "userKey": "ff808081908dfda301908dfe26760000",
+    "displayName": "admin",
+    "_links": {
+     "self": "http://service.example.invalid/confluence/rest/api/user?key=ff808081908dfda301908dfe26760000"
+    },
+    "_expandable": {
+     "profilePicture": "",
+     "status": ""
+    }
+   },
+   "lastModificationDate": "2026-10-22T20:52:35.690+02:00",
+   "_links": {
+    "webui": "/spaces/ENG/overview",
+    "self": "http://service.example.invalid/confluence/rest/api/space/ENG"
+   },
+   "_expandable": {
+    "metadata": "",
+    "permissions": "",
+    "icon": "",
+    "description": "",
+    "retentionPolicy": "",
+    "homepage": "/rest/api/content/1081346"
+   }
+  }
+ ],
+ "start": 0,
+ "limit": 25,
+ "size": 2,
+ "_links": {
+  "self": "http://service.example.invalid/confluence/rest/api/space",
+  "base": "http://service.example.invalid/confluence",
+  "context": "/confluence"
+ }
+}

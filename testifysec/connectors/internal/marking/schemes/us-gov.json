@@ -1,0 +1,21 @@
+{
+ "schema": "badger.marking-scheme/v1",
+ "name": "us-gov",
+ "version": 1,
+ "note": "The default scheme: exactly the banner rules the marking package has always applied. Words come from tokens.json (each table cites its source there); this file holds the structure and the rules. Levels are referred to by position: 0 is the lowest.",
+ "vocabulary": "tokens.json",
+ "levelsFrom": "/levels",
+ "groups": [
+  {"name": "sci", "kind": "require", "position": 1, "minLevel": 2, "tokensFrom": [{"pointer": "/sci/tokens", "suffix": true}], "source": "dodm5200.01v2"},
+  {"name": "sap", "kind": "require", "position": 2, "minLevel": 2, "prefix": "SAR-", "source": "dodm5200.01v2"},
+  {"name": "aea", "kind": "require", "position": 3, "levels": [0, 2, 3, 4], "tokensFrom": [{"pointer": "/aea/tokens"}], "source": "dodm5200.01v2"},
+  {"name": "fgi", "kind": "sourced", "position": 4, "levels": [0, 2, 3, 4], "tokens": [{"token": "FGI"}], "source": "dodm5200.01v2"},
+  {"name": "categories", "kind": "require", "position": 5, "levels": [1], "first": true, "absorbedFrom": 2, "specifiedPrefix": "SP-",
+   "tokensFrom": [{"pointer": "/cui_categories/basic", "variant": "basic"}, {"pointer": "/cui_categories/specified", "variant": "specified"}, {"pointer": "/cui_categories/either", "variant": "either"}], "source": "cui-registry"},
+  {"name": "nonic", "kind": "require", "position": 7, "levels": [0, 2, 3, 4], "tokensFrom": [{"pointer": "/nonic/tokens"}], "source": "dodm5200.01v2"},
+  {"name": "controls", "kind": "require", "position": 6, "tokensFrom": [{"pointer": "/dissem/tokens", "levels": [2, 3, 4]}, {"pointer": "/cui_ldc/tokens"}], "source": "dodm5200.01v2"},
+  {"name": "release", "kind": "release", "position": 6, "inGroup": "controls", "home": "USA", "noReleasePortion": "NF", "restrictedFrom": 2,
+   "releaseLine": "REL TO", "displayLine": "DISPLAY ONLY", "countriesFrom": "/release/countries", "tetragraphsFrom": "/release/tetragraphs", "source": "cui-ldc"}
+ ],
+ "retired": [{"tokensFrom": "/legacy/tokens", "message": "a retired legacy marking (DoDI 5200.48); configure a current one"}]
+}

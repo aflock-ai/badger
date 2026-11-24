@@ -1,0 +1,6 @@
+{"expand":"transitions","transitions":[
+{"id":"11","name":"31","to":{"name":"In Review","id":"4"}},
+{"id":"31","name":"Done","to":{"name":"Done","id":"10001"}},
+{"id":"41","name":"Close","to":{"name":"Closed","id":"6"}},
+{"id":"51","name":"close","to":{"name":"Closed","id":"6"}}
+]}

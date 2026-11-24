@@ -1,0 +1,19 @@
+{
+ "schema": "badger.marking-policy/v1",
+ "note": "Example policy for a general enterprise deployment on the corporate preset. Test data and a documentation example.",
+ "scheme": {"preset": "corporate", "sha256": "sha256:90db5dc18987919f5b118a4e81dcef9a95a80903235ee41c6d6999c3cd7cb62d"},
+ "dataFlow": {
+  "classify": {
+   "INTERNAL": ["connector:jira/*", "connector:wiki/*", "mcp:search/*"],
+   "CONFIDENTIAL//CUSTOMER-A1": ["connector:jira-a1/*"],
+   "RESTRICTED//PII": ["connector:hr/*"],
+   "CONFIDENTIAL//PRIVILEGED": ["connector:legal/**"],
+   "CONFIDENTIAL//CUSTOMER-A1/PII": ["model:approved-*"],
+   "INTERNAL//EXPORT": ["path:design/**"]
+  },
+  "default": "refuse",
+  "flowRules": [
+   {"deny": "PRIVILEGED->connector:chat/*", "message": "privileged material stays out of chat"}
+  ]
+ }
+}

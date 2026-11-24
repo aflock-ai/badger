@@ -1,0 +1,22 @@
+Badger
+Copyright 2026 TestifySec
+
+Badger is a modified distribution of OpenCode (https://github.com/anomalyco/opencode).
+It is not affiliated with or endorsed by the OpenCode project.
+
+This repository contains work under two licenses.
+
+1. Upstream OpenCode. Files that come from OpenCode are licensed under the MIT License,
+   Copyright (c) 2025 opencode. The full text is in LICENSE. The upstream copyright and
+   permission notice must be kept in every copy or substantial portion of those files.
+
+2. TestifySec components. Everything under testifysec/ was written by TestifySec and is
+   licensed under the Apache License, Version 2.0. The full text is in LICENSE-APACHE.
+
+TestifySec also changed some upstream files outside testifysec/. Those files stay under the
+MIT License as a whole, because they contain upstream code. TestifySec's own contributions to
+them are additionally offered under the Apache License, Version 2.0. The exact upstream commit
+this tree was derived from is recorded in testifysec/upstream.commit.
+
+Some directories carry their own license files for third-party material (for example test
+suites and fonts). Those files govern their own directories.

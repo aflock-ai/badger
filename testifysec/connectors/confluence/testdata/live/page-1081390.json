@@ -1,0 +1,1343 @@
+{
+ "id": "1081390",
+ "type": "page",
+ "status": "current",
+ "title": "lvb many labels",
+ "space": {
+  "id": 1114113,
+  "key": "ENG",
+  "name": "Engineering",
+  "status": "current",
+  "type": "global",
+  "creator": {
+   "type": "known",
+   "username": "admin",
+   "userKey": "ff808081908dfda301908dfe26760000",
+   "displayName": "admin",
+   "_links": {
+    "self": "http://service.example.invalid/confluence/rest/api/user?key=ff808081908dfda301908dfe26760000"
+   },
+   "_expandable": {
+    "profilePicture": "",
+    "status": ""
+   }
+  },
+  "creationDate": "2026-10-22T20:52:35.690+02:00",
+  "lastModifier": {
+   "type": "known",
+   "username": "admin",
+   "userKey": "ff808081908dfda301908dfe26760000",
+   "displayName": "admin",
+   "_links": {
+    "self": "http://service.example.invalid/confluence/rest/api/user?key=ff808081908dfda301908dfe26760000"
+   },
+   "_expandable": {
+    "profilePicture": "",
+    "status": ""
+   }
+  },
+  "lastModificationDate": "2026-10-22T20:52:35.690+02:00",
+  "_links": {
+   "webui": "/spaces/ENG/overview",
+   "self": "http://service.example.invalid/confluence/rest/api/space/ENG"
+  },
+  "_expandable": {
+   "metadata": "",
+   "permissions": "",
+   "icon": "",
+   "description": "",
+   "retentionPolicy": "",
+   "homepage": "/rest/api/content/1081346"
+  }
+ },
+ "version": {
+  "by": {
+   "type": "known",
+   "username": "admin",
+   "userKey": "ff808081908dfda301908dfe26760000",
+   "profilePicture": {
+    "path": "/confluence/images/icons/profilepics/default.svg",
+    "width": 48,
+    "height": 48,
+    "isDefault": true
+   },
+   "displayName": "admin",
+   "_links": {
+    "self": "http://service.example.invalid/confluence/rest/api/user?key=ff808081908dfda301908dfe26760000"
+   },
+   "_expandable": {
+    "status": ""
+   }
+  },
+  "when": "2026-10-22T20:52:45.454+02:00",
+  "message": "",
+  "number": 1,
+  "minorEdit": false,
+  "hidden": false,
+  "_links": {
+   "self": "http://service.example.invalid/confluence/rest/experimental/content/1081390/version/1"
+  },
+  "_expandable": {
+   "content": "/rest/api/content/1081390"
+  }
+ },
+ "ancestors": [],
+ "position": -1,
+ "body": {
+  "storage": {
+   "value": "<p>Labelled page.</p>",
+   "representation": "storage",
+   "_expandable": {
+    "content": "/rest/api/content/1081390"
+   }
+  },
+  "_expandable": {
+   "editor": "",
+   "view": "",
+   "export_view": "",
+   "styled_view": "",
+   "anonymous_export_view": ""
+  }
+ },
+ "metadata": {
+  "labels": {
+   "results": [
+    {
+     "prefix": "global",
+     "name": "lvb-tag-000",
+     "id": "1343489",
+     "label": "lvb-tag-000"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-001",
+     "id": "1343490",
+     "label": "lvb-tag-001"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-002",
+     "id": "1343491",
+     "label": "lvb-tag-002"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-003",
+     "id": "1343492",
+     "label": "lvb-tag-003"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-004",
+     "id": "1343493",
+     "label": "lvb-tag-004"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-005",
+     "id": "1343494",
+     "label": "lvb-tag-005"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-006",
+     "id": "1343495",
+     "label": "lvb-tag-006"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-007",
+     "id": "1343496",
+     "label": "lvb-tag-007"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-008",
+     "id": "1343497",
+     "label": "lvb-tag-008"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-009",
+     "id": "1343498",
+     "label": "lvb-tag-009"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-010",
+     "id": "1343499",
+     "label": "lvb-tag-010"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-011",
+     "id": "1343500",
+     "label": "lvb-tag-011"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-012",
+     "id": "1343501",
+     "label": "lvb-tag-012"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-013",
+     "id": "1343502",
+     "label": "lvb-tag-013"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-014",
+     "id": "1343503",
+     "label": "lvb-tag-014"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-015",
+     "id": "1343504",
+     "label": "lvb-tag-015"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-016",
+     "id": "1343505",
+     "label": "lvb-tag-016"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-017",
+     "id": "1343506",
+     "label": "lvb-tag-017"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-018",
+     "id": "1343507",
+     "label": "lvb-tag-018"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-019",
+     "id": "1343508",
+     "label": "lvb-tag-019"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-020",
+     "id": "1343509",
+     "label": "lvb-tag-020"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-021",
+     "id": "1343510",
+     "label": "lvb-tag-021"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-022",
+     "id": "1343511",
+     "label": "lvb-tag-022"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-023",
+     "id": "1343512",
+     "label": "lvb-tag-023"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-024",
+     "id": "1343513",
+     "label": "lvb-tag-024"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-025",
+     "id": "1343514",
+     "label": "lvb-tag-025"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-026",
+     "id": "1343515",
+     "label": "lvb-tag-026"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-027",
+     "id": "1343516",
+     "label": "lvb-tag-027"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-028",
+     "id": "1343517",
+     "label": "lvb-tag-028"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-029",
+     "id": "1343518",
+     "label": "lvb-tag-029"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-030",
+     "id": "1343519",
+     "label": "lvb-tag-030"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-031",
+     "id": "1343520",
+     "label": "lvb-tag-031"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-032",
+     "id": "1343521",
+     "label": "lvb-tag-032"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-033",
+     "id": "1343522",
+     "label": "lvb-tag-033"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-034",
+     "id": "1343523",
+     "label": "lvb-tag-034"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-035",
+     "id": "1343524",
+     "label": "lvb-tag-035"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-036",
+     "id": "1343525",
+     "label": "lvb-tag-036"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-037",
+     "id": "1343526",
+     "label": "lvb-tag-037"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-038",
+     "id": "1343527",
+     "label": "lvb-tag-038"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-039",
+     "id": "1343528",
+     "label": "lvb-tag-039"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-040",
+     "id": "1343529",
+     "label": "lvb-tag-040"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-041",
+     "id": "1343530",
+     "label": "lvb-tag-041"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-042",
+     "id": "1343531",
+     "label": "lvb-tag-042"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-043",
+     "id": "1343532",
+     "label": "lvb-tag-043"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-044",
+     "id": "1343533",
+     "label": "lvb-tag-044"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-045",
+     "id": "1343534",
+     "label": "lvb-tag-045"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-046",
+     "id": "1343535",
+     "label": "lvb-tag-046"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-047",
+     "id": "1343536",
+     "label": "lvb-tag-047"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-048",
+     "id": "1343537",
+     "label": "lvb-tag-048"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-049",
+     "id": "1343538",
+     "label": "lvb-tag-049"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-050",
+     "id": "1343539",
+     "label": "lvb-tag-050"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-051",
+     "id": "1343540",
+     "label": "lvb-tag-051"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-052",
+     "id": "1343541",
+     "label": "lvb-tag-052"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-053",
+     "id": "1343542",
+     "label": "lvb-tag-053"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-054",
+     "id": "1343543",
+     "label": "lvb-tag-054"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-055",
+     "id": "1343544",
+     "label": "lvb-tag-055"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-056",
+     "id": "1343545",
+     "label": "lvb-tag-056"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-057",
+     "id": "1343546",
+     "label": "lvb-tag-057"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-058",
+     "id": "1343547",
+     "label": "lvb-tag-058"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-059",
+     "id": "1343548",
+     "label": "lvb-tag-059"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-060",
+     "id": "1343549",
+     "label": "lvb-tag-060"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-061",
+     "id": "1343550",
+     "label": "lvb-tag-061"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-062",
+     "id": "1343551",
+     "label": "lvb-tag-062"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-063",
+     "id": "1343552",
+     "label": "lvb-tag-063"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-064",
+     "id": "1343553",
+     "label": "lvb-tag-064"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-065",
+     "id": "1343554",
+     "label": "lvb-tag-065"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-066",
+     "id": "1343555",
+     "label": "lvb-tag-066"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-067",
+     "id": "1343556",
+     "label": "lvb-tag-067"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-068",
+     "id": "1343557",
+     "label": "lvb-tag-068"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-069",
+     "id": "1343558",
+     "label": "lvb-tag-069"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-070",
+     "id": "1343559",
+     "label": "lvb-tag-070"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-071",
+     "id": "1343560",
+     "label": "lvb-tag-071"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-072",
+     "id": "1343561",
+     "label": "lvb-tag-072"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-073",
+     "id": "1343562",
+     "label": "lvb-tag-073"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-074",
+     "id": "1343563",
+     "label": "lvb-tag-074"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-075",
+     "id": "1343564",
+     "label": "lvb-tag-075"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-076",
+     "id": "1343565",
+     "label": "lvb-tag-076"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-077",
+     "id": "1343566",
+     "label": "lvb-tag-077"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-078",
+     "id": "1343567",
+     "label": "lvb-tag-078"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-079",
+     "id": "1343568",
+     "label": "lvb-tag-079"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-080",
+     "id": "1343569",
+     "label": "lvb-tag-080"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-081",
+     "id": "1343570",
+     "label": "lvb-tag-081"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-082",
+     "id": "1343571",
+     "label": "lvb-tag-082"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-083",
+     "id": "1343572",
+     "label": "lvb-tag-083"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-084",
+     "id": "1343573",
+     "label": "lvb-tag-084"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-085",
+     "id": "1343574",
+     "label": "lvb-tag-085"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-086",
+     "id": "1343575",
+     "label": "lvb-tag-086"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-087",
+     "id": "1343576",
+     "label": "lvb-tag-087"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-088",
+     "id": "1343577",
+     "label": "lvb-tag-088"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-089",
+     "id": "1343578",
+     "label": "lvb-tag-089"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-090",
+     "id": "1343579",
+     "label": "lvb-tag-090"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-091",
+     "id": "1343580",
+     "label": "lvb-tag-091"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-092",
+     "id": "1343581",
+     "label": "lvb-tag-092"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-093",
+     "id": "1343582",
+     "label": "lvb-tag-093"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-094",
+     "id": "1343583",
+     "label": "lvb-tag-094"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-095",
+     "id": "1343584",
+     "label": "lvb-tag-095"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-096",
+     "id": "1343585",
+     "label": "lvb-tag-096"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-097",
+     "id": "1343586",
+     "label": "lvb-tag-097"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-098",
+     "id": "1343587",
+     "label": "lvb-tag-098"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-099",
+     "id": "1343588",
+     "label": "lvb-tag-099"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-100",
+     "id": "1343589",
+     "label": "lvb-tag-100"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-101",
+     "id": "1343590",
+     "label": "lvb-tag-101"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-102",
+     "id": "1343591",
+     "label": "lvb-tag-102"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-103",
+     "id": "1343592",
+     "label": "lvb-tag-103"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-104",
+     "id": "1343593",
+     "label": "lvb-tag-104"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-105",
+     "id": "1343594",
+     "label": "lvb-tag-105"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-106",
+     "id": "1343595",
+     "label": "lvb-tag-106"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-107",
+     "id": "1343596",
+     "label": "lvb-tag-107"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-108",
+     "id": "1343597",
+     "label": "lvb-tag-108"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-109",
+     "id": "1343598",
+     "label": "lvb-tag-109"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-110",
+     "id": "1343599",
+     "label": "lvb-tag-110"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-111",
+     "id": "1343600",
+     "label": "lvb-tag-111"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-112",
+     "id": "1343601",
+     "label": "lvb-tag-112"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-113",
+     "id": "1343602",
+     "label": "lvb-tag-113"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-114",
+     "id": "1343603",
+     "label": "lvb-tag-114"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-115",
+     "id": "1343604",
+     "label": "lvb-tag-115"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-116",
+     "id": "1343605",
+     "label": "lvb-tag-116"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-117",
+     "id": "1343606",
+     "label": "lvb-tag-117"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-118",
+     "id": "1343607",
+     "label": "lvb-tag-118"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-119",
+     "id": "1343608",
+     "label": "lvb-tag-119"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-120",
+     "id": "1343609",
+     "label": "lvb-tag-120"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-121",
+     "id": "1343610",
+     "label": "lvb-tag-121"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-122",
+     "id": "1343611",
+     "label": "lvb-tag-122"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-123",
+     "id": "1343612",
+     "label": "lvb-tag-123"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-124",
+     "id": "1343613",
+     "label": "lvb-tag-124"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-125",
+     "id": "1343614",
+     "label": "lvb-tag-125"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-126",
+     "id": "1343615",
+     "label": "lvb-tag-126"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-127",
+     "id": "1343616",
+     "label": "lvb-tag-127"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-128",
+     "id": "1343617",
+     "label": "lvb-tag-128"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-129",
+     "id": "1343618",
+     "label": "lvb-tag-129"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-130",
+     "id": "1343619",
+     "label": "lvb-tag-130"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-131",
+     "id": "1343620",
+     "label": "lvb-tag-131"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-132",
+     "id": "1343621",
+     "label": "lvb-tag-132"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-133",
+     "id": "1343622",
+     "label": "lvb-tag-133"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-134",
+     "id": "1343623",
+     "label": "lvb-tag-134"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-135",
+     "id": "1343624",
+     "label": "lvb-tag-135"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-136",
+     "id": "1343625",
+     "label": "lvb-tag-136"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-137",
+     "id": "1343626",
+     "label": "lvb-tag-137"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-138",
+     "id": "1343627",
+     "label": "lvb-tag-138"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-139",
+     "id": "1343628",
+     "label": "lvb-tag-139"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-140",
+     "id": "1343629",
+     "label": "lvb-tag-140"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-141",
+     "id": "1343630",
+     "label": "lvb-tag-141"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-142",
+     "id": "1343631",
+     "label": "lvb-tag-142"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-143",
+     "id": "1343632",
+     "label": "lvb-tag-143"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-144",
+     "id": "1343633",
+     "label": "lvb-tag-144"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-145",
+     "id": "1343634",
+     "label": "lvb-tag-145"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-146",
+     "id": "1343635",
+     "label": "lvb-tag-146"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-147",
+     "id": "1343636",
+     "label": "lvb-tag-147"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-148",
+     "id": "1343637",
+     "label": "lvb-tag-148"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-149",
+     "id": "1343638",
+     "label": "lvb-tag-149"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-150",
+     "id": "1343639",
+     "label": "lvb-tag-150"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-151",
+     "id": "1343640",
+     "label": "lvb-tag-151"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-152",
+     "id": "1343641",
+     "label": "lvb-tag-152"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-153",
+     "id": "1343642",
+     "label": "lvb-tag-153"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-154",
+     "id": "1343643",
+     "label": "lvb-tag-154"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-155",
+     "id": "1343644",
+     "label": "lvb-tag-155"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-156",
+     "id": "1343645",
+     "label": "lvb-tag-156"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-157",
+     "id": "1343646",
+     "label": "lvb-tag-157"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-158",
+     "id": "1343647",
+     "label": "lvb-tag-158"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-159",
+     "id": "1343648",
+     "label": "lvb-tag-159"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-160",
+     "id": "1343649",
+     "label": "lvb-tag-160"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-161",
+     "id": "1343650",
+     "label": "lvb-tag-161"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-162",
+     "id": "1343651",
+     "label": "lvb-tag-162"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-163",
+     "id": "1343652",
+     "label": "lvb-tag-163"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-164",
+     "id": "1343653",
+     "label": "lvb-tag-164"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-165",
+     "id": "1343654",
+     "label": "lvb-tag-165"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-166",
+     "id": "1343655",
+     "label": "lvb-tag-166"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-167",
+     "id": "1343656",
+     "label": "lvb-tag-167"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-168",
+     "id": "1343657",
+     "label": "lvb-tag-168"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-169",
+     "id": "1343658",
+     "label": "lvb-tag-169"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-170",
+     "id": "1343659",
+     "label": "lvb-tag-170"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-171",
+     "id": "1343660",
+     "label": "lvb-tag-171"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-172",
+     "id": "1343661",
+     "label": "lvb-tag-172"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-173",
+     "id": "1343662",
+     "label": "lvb-tag-173"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-174",
+     "id": "1343663",
+     "label": "lvb-tag-174"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-175",
+     "id": "1343664",
+     "label": "lvb-tag-175"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-176",
+     "id": "1343665",
+     "label": "lvb-tag-176"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-177",
+     "id": "1343666",
+     "label": "lvb-tag-177"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-178",
+     "id": "1343667",
+     "label": "lvb-tag-178"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-179",
+     "id": "1343668",
+     "label": "lvb-tag-179"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-180",
+     "id": "1343669",
+     "label": "lvb-tag-180"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-181",
+     "id": "1343670",
+     "label": "lvb-tag-181"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-182",
+     "id": "1343671",
+     "label": "lvb-tag-182"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-183",
+     "id": "1343672",
+     "label": "lvb-tag-183"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-184",
+     "id": "1343673",
+     "label": "lvb-tag-184"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-185",
+     "id": "1343674",
+     "label": "lvb-tag-185"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-186",
+     "id": "1343675",
+     "label": "lvb-tag-186"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-187",
+     "id": "1343676",
+     "label": "lvb-tag-187"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-188",
+     "id": "1343677",
+     "label": "lvb-tag-188"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-189",
+     "id": "1343678",
+     "label": "lvb-tag-189"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-190",
+     "id": "1343679",
+     "label": "lvb-tag-190"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-191",
+     "id": "1343680",
+     "label": "lvb-tag-191"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-192",
+     "id": "1343681",
+     "label": "lvb-tag-192"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-193",
+     "id": "1343682",
+     "label": "lvb-tag-193"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-194",
+     "id": "1343683",
+     "label": "lvb-tag-194"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-195",
+     "id": "1343684",
+     "label": "lvb-tag-195"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-196",
+     "id": "1343685",
+     "label": "lvb-tag-196"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-197",
+     "id": "1343686",
+     "label": "lvb-tag-197"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-198",
+     "id": "1343687",
+     "label": "lvb-tag-198"
+    },
+    {
+     "prefix": "global",
+     "name": "lvb-tag-199",
+     "id": "1343688",
+     "label": "lvb-tag-199"
+    }
+   ],
+   "start": 0,
+   "limit": 200,
+   "size": 200,
+   "_links": {
+    "self": "http://service.example.invalid/confluence/rest/api/content/1081390/label",
+    "next": "/rest/api/content/1081390/label?limit=200&start=200"
+   }
+  },
+  "_expandable": {
+   "currentuser": "",
+   "reactionsCount": "",
+   "properties": "",
+   "frontend": "",
+   "editorHtml": ""
+  }
+ },
+ "extensions": {
+  "position": "none"
+ },
+ "_links": {
+  "webui": "/spaces/ENG/pages/1081390/lvb+many+labels",
+  "edit": "/pages/resumedraft.action?draftId=1081390",
+  "tinyui": "/x/LoAQ",
+  "collection": "/rest/api/content",
+  "base": "http://service.example.invalid/confluence",
+  "context": "/confluence",
+  "self": "http://service.example.invalid/confluence/rest/api/content/1081390"
+ },
+ "_expandable": {
+  "container": "/rest/api/space/ENG",
+  "operations": "",
+  "children": "/rest/api/content/1081390/child",
+  "restrictions": "/rest/api/content/1081390/restriction/byOperation",
+  "history": "/rest/api/content/1081390/history",
+  "descendants": "/rest/api/content/1081390/descendant",
+  "relevantViewRestrictions": "/rest/api/content/1081390/restriction/relevantViewRestrictions"
+ }
+}

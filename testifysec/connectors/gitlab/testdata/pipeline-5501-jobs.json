@@ -1,0 +1,2 @@
+[{"id":77001,"name":"unit","stage":"test","status":"failed","duration":61.4,"web_url":"https://gitlab.example.invalid/platform/build/signer/-/jobs/77001"},
+ {"id":77002,"name":"build","stage":"build","status":"success","duration":120.0,"web_url":"https://gitlab.example.invalid/platform/build/signer/-/jobs/77002"}]

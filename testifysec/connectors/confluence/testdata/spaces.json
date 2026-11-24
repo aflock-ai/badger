@@ -1,0 +1,64 @@
+{
+ "results": [
+  {
+   "id": 30617,
+   "key": "ENG",
+   "name": "Engineering",
+   "type": "global",
+   "status": "current",
+   "_links": {
+    "webui": "/display/ENG",
+    "self": "https://wiki.example.invalid/rest/api/space/ENG"
+   },
+   "_expandable": {
+    "metadata": "",
+    "icon": "",
+    "description": "",
+    "homepage": ""
+   }
+  },
+  {
+   "id": 12450,
+   "key": "OPS",
+   "name": "Operations",
+   "type": "global",
+   "status": "current",
+   "_links": {
+    "webui": "/display/OPS",
+    "self": "https://wiki.example.invalid/rest/api/space/OPS"
+   },
+   "_expandable": {
+    "metadata": "",
+    "icon": "",
+    "description": "",
+    "homepage": ""
+   }
+  },
+  {
+   "id": 65620,
+   "key": "~dev-a",
+   "name": "Dev A",
+   "type": "personal",
+   "status": "current",
+   "_links": {
+    "webui": "/display/~dev-a",
+    "self": "https://wiki.example.invalid/rest/api/space/~dev-a"
+   },
+   "_expandable": {
+    "metadata": "",
+    "icon": "",
+    "description": "",
+    "homepage": ""
+   }
+  }
+ ],
+ "start": 0,
+ "limit": 25,
+ "size": 3,
+ "_links": {
+  "base": "https://wiki.example.invalid",
+  "context": "",
+  "self": "https://wiki.example.invalid/rest/api/content/search",
+  "next": "/rest/api/space?next=true&limit=25&start=25"
+ }
+}

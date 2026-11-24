@@ -1,0 +1,8 @@
+{
+  "name": "Badger",
+  "shortName": "Badger",
+  "command": "badger",
+  "providerName": "Badger approved gateway",
+  "modelName": "Badger approved model",
+  "attribution": "Built on OpenCode. Upstream licenses and attribution are preserved."
+}

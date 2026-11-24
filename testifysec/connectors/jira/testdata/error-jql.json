@@ -1,0 +1,1 @@
+{"errorMessages":["Error in the JQL Query: Expecting operator but got 'garbage'. The valid operators are '=', '!=', '<', '>', '<=', '>=', '~', '!~', 'IN', 'NOT IN', 'IS' and 'IS NOT'. (line 1, character 9)"],"errors":{}}

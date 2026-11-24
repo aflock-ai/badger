@@ -1,0 +1,25 @@
+<h1>Release runbook</h1>
+<p>Owner: <ac:link><ri:user ri:username="dev-a" /></ac:link>. See <a href="https://wiki.example.invalid/display/ENG/Signing">signing notes</a> and <ac:link><ri:page ri:space-key="ENG" ri:content-title="Key Rotation" /><ac:plain-text-link-body><![CDATA[the rotation page]]></ac:plain-text-link-body></ac:link>&nbsp;&mdash; updated <strong>weekly</strong>, <em>not</em> daily.</p>
+<h2>Steps</h2>
+<ol>
+  <li>Freeze the <code>main</code> branch.</li>
+  <li>Cut the tag
+    <ul>
+      <li>Check <strong>CI</strong> is green</li>
+      <li>Sign it</li>
+    </ul>
+  </li>
+</ol>
+<ac:structured-macro ac:name="code" ac:schema-version="1" ac:macro-id="0b1d"><ac:parameter ac:name="language">bash</ac:parameter><ac:plain-text-body><![CDATA[make release VERSION=1.4.0
+echo "```done```"]]></ac:plain-text-body></ac:structured-macro>
+<ac:structured-macro ac:name="info" ac:schema-version="1"><ac:parameter ac:name="title">Heads up</ac:parameter><ac:rich-text-body><p>Releases pause during the freeze.</p></ac:rich-text-body></ac:structured-macro>
+<ac:structured-macro ac:name="toc" ac:schema-version="1"><ac:parameter ac:name="maxLevel">2</ac:parameter></ac:structured-macro>
+<table><colgroup><col /><col /></colgroup><tbody>
+<tr><th>Host</th><th>Role</th></tr>
+<tr><td><p>build-1.example.invalid</p></td><td>signer | primary</td></tr>
+<tr><td>build-2.example.invalid</td><td><p>standby</p><p>cold</p></td></tr>
+</tbody></table>
+<ac:task-list><ac:task><ac:task-id>1</ac:task-id><ac:task-status>complete</ac:task-status><ac:task-body>Notify the team</ac:task-body></ac:task><ac:task><ac:task-id>2</ac:task-id><ac:task-status>incomplete</ac:task-status><ac:task-body>Update the changelog</ac:task-body></ac:task></ac:task-list>
+<p><ac:image ac:height="250"><ri:attachment ri:filename="topology.png" /></ac:image> <ac:structured-macro ac:name="status"><ac:parameter ac:name="title">DONE</ac:parameter></ac:structured-macro></p>
+<hr />
+<blockquote><p>Measure twice.</p></blockquote>

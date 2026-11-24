@@ -1,0 +1,57 @@
+{
+  "entries": [
+    {
+      "id": "release-bot",
+      "kind": "protected_branch",
+      "project_path": "platform/release-bot",
+      "ref": "main",
+      "sources": [
+        "schedule",
+        "web"
+      ],
+      "models": [
+        "model-a"
+      ],
+      "trigger_users": [],
+      "expires_at": null,
+      "enabled": true,
+      "minted_before": null
+    },
+    {
+      "id": "release-bot-spike",
+      "kind": "named_branch",
+      "project_path": "platform/release-bot",
+      "ref": "spike/summaries",
+      "sources": [
+        "web"
+      ],
+      "models": [
+        "model-a"
+      ],
+      "trigger_users": [
+        "alice",
+        "bob"
+      ],
+      "expires_at": "2027-01-29T00:00:00Z",
+      "enabled": true,
+      "minted_before": null
+    },
+    {
+      "id": "docs-site",
+      "kind": "protected_branch",
+      "issuer": "actions-1",
+      "project_path": "example-org/docs-site",
+      "ref": "main",
+      "sources": [
+        "push"
+      ],
+      "models": [
+        "model-b"
+      ],
+      "trigger_users": [],
+      "expires_at": null,
+      "enabled": true,
+      "minted_before": null
+    }
+  ]
+}

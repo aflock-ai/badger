@@ -1,0 +1,75 @@
+/* The admin console's own styles, after the shared Badger theme (theme.css), whose tokens they use. */
+:root{--ok:var(--c-success);--near:var(--c-warning);--over:var(--c-danger)}
+body{background:var(--c-bg)}
+main{max-width:1180px;margin:0 auto;padding:var(--sp-4) 16px 48px}
+.tabs{display:flex;gap:2px;padding:0 16px;background:var(--c-surface);border-bottom:1px solid var(--c-border);overflow-x:auto}
+.tabs [role=tab]{border:0;border-bottom:2px solid transparent;border-radius:0;background:none;padding:12px 14px;color:var(--c-text-muted);white-space:nowrap}
+.tabs [role=tab][aria-selected=true]{color:var(--c-text);border-bottom-color:var(--c-accent);font-weight:600}
+.status{min-height:1.4em;margin:0 0 var(--sp-2);color:var(--c-text-muted)}
+.status.err,.err{color:var(--c-danger)}
+.warn{color:var(--c-warning);font-weight:600}
+.card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:10px;padding:16px;margin-bottom:14px;min-width:0}
+h2{font-size:15px;margin:0 0 10px}h2.gap{margin-top:18px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:14px}
+.tiles .card{margin:0}
+.k{color:var(--c-text-muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.v{font-size:26px;font-weight:650;font-variant-numeric:tabular-nums;margin-top:2px}
+.s{color:var(--c-text-muted);font-size:12px}
+.cols{display:grid;grid-template-columns:2fr 1fr;gap:14px}
+@media (max-width:860px){.cols{grid-template-columns:1fr}}
+.bar{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin-bottom:12px}
+.bar label{display:inline-flex;gap:6px;align-items:center;margin:0;font-weight:400;color:var(--c-text-muted)}
+.spacer,.grow{flex:1}
+.note{color:var(--c-text-muted);font-size:13px;margin:0}
+.wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:8px;border-bottom:1px solid var(--c-border);text-align:left;vertical-align:middle}
+th{font-size:12px;color:var(--c-text-muted);font-weight:600;white-space:nowrap}
+td.n,th.n{text-align:right;white-space:nowrap}
+th button{all:unset;cursor:pointer}th button:focus-visible{outline:2px solid var(--c-focus)}
+tr.total td{font-weight:650;border-top:2px solid var(--c-border)}
+td.msg{color:var(--c-text-muted);padding:18px 8px}
+.sub{display:block;color:var(--c-text-muted);font-size:12px}
+.tag{display:inline-block;font-size:11px;border:1px solid var(--c-border);border-radius:4px;padding:0 5px;margin-left:6px;color:var(--c-text-muted);white-space:nowrap}
+.tag.person{color:var(--c-accent)}.tag.pipeline{color:var(--c-text)}
+.tag.bad{color:var(--c-danger);border-color:var(--c-danger)}
+.chip{display:inline-block;background:var(--c-surface-2);border-radius:12px;padding:1px 9px;font-size:12px;margin:1px 3px 1px 0}
+.meter{height:8px;background:var(--c-surface-2);border-radius:5px;overflow:hidden;min-width:110px}
+.meter i{display:block;height:100%;background:var(--ok)}
+.meter i.near{background:var(--near)}.meter i.over{background:var(--over)}
+.pill{display:inline-block;font-size:12px;border-radius:10px;padding:1px 9px;white-space:nowrap}
+.pill.ok{background:var(--c-success-bg);color:var(--c-success)}
+.pill.near{background:var(--c-warning-bg);color:var(--c-warning)}
+.pill.over{background:var(--c-danger-bg);color:var(--c-danger)}
+.alerts{list-style:none;margin:0;padding:0}.alerts li{padding:8px 0;border-bottom:1px solid var(--c-border)}.alerts li:last-child{border:0}
+.alerts button{margin-top:4px}
+svg{width:100%;height:auto;display:block}.grid{stroke:var(--c-border)}.ax{fill:var(--c-text-muted);font-size:11px}
+.barfill{fill:var(--c-accent)}
+dialog{border:1px solid var(--c-border);border-radius:12px;background:var(--c-surface);color:var(--c-text);max-width:760px;width:calc(100% - 32px);padding:20px}
+dialog::backdrop{background:rgb(0 0 0 / .45)}
+.sentence{font-size:16px;line-height:2.4}.sentence select,.sentence input{font-size:15px;margin:0 3px}
+.preview{min-height:1.4em}
+.full{width:100%}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
+@media (max-width:640px){.grid2{grid-template-columns:1fr}}
+fieldset .check{display:block}
+.actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
+
+/* Limits: the uncapped warning, the two enforcement sections and where each effective value comes from. */
+.callout{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;border:1px solid var(--c-warning);border-left-width:4px;border-radius:8px;background:var(--c-surface);padding:12px 16px;margin-bottom:14px}
+.callout[hidden]{display:none}
+.callout strong{color:var(--c-warning)}
+.callout button{margin-left:auto}
+h2.section{margin:18px 0 4px}
+.tag.src{margin-left:0}.tag.src.own{color:var(--c-accent);border-color:var(--c-accent)}.tag.src.builtin{font-style:italic}.tag.src.none{color:var(--c-text-muted)}
+#lk-table th[scope=row]{font-size:14px;color:var(--c-text);font-weight:500}
+.prices table{margin-top:4px}.prices th,.prices td{padding:4px 8px}
+
+/* The deployment's marking, top and bottom, in the workspace app's colours (its banner.css) in
+   both modes: a marking banner never takes the theme's colours. */
+.classification-banner { position: sticky; z-index: 10; display: flex; align-items: center; justify-content: center; min-height: 24px;
+  background: #243746; color: #fff; font-size: 12px; font-weight: 700; line-height: 24px; letter-spacing: 0.14em; text-align: center; }
+body { display: flex; flex-direction: column; min-height: 100vh; }
+main { flex: 1 0 auto; width: 100%; box-sizing: border-box; }
+body > .classification-banner:first-child { top: 0; }
+body > .classification-banner:last-child { bottom: 0; }

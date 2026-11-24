@@ -1,0 +1,1 @@
+{"id":101,"name":"signer","path_with_namespace":"platform/build/signer","description":"Release signing service.","default_branch":"main","visibility":"internal","web_url":"https://gitlab.example.invalid/platform/build/signer","topics":["go","classification::CUI"],"archived":false,"last_activity_at":"2026-09-30T14:02:11.000Z","open_issues_count":3}

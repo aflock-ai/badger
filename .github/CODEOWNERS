@@ -1,0 +1,7 @@
+# Code owners. Not active yet: no owning team has been named.
+#
+# TODO(maintainers): create a team (for example @aflock-ai/badger-maintainers), give it write
+# access, then uncomment the line below. GitHub shows a CODEOWNERS entry that names a missing
+# team as an error, so no placeholder owner is committed.
+#
+# *  @aflock-ai/badger-maintainers

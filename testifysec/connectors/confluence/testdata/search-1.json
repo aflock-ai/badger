@@ -1,0 +1,116 @@
+{
+ "results": [
+  {
+   "id": "1001",
+   "type": "page",
+   "status": "current",
+   "title": "Release Runbook",
+   "space": {
+    "id": 98305,
+    "key": "ENG",
+    "name": "Engineering",
+    "type": "global",
+    "status": "current",
+    "_links": {
+     "webui": "/display/ENG",
+     "self": "https://wiki.example.invalid/rest/api/space/ENG"
+    },
+    "_expandable": {
+     "metadata": "",
+     "icon": "",
+     "description": "",
+     "homepage": "/rest/api/content/98306"
+    }
+   },
+   "extensions": {
+    "position": "none"
+   },
+   "_links": {
+    "webui": "/display/ENG/Release+Runbook",
+    "edit": "/pages/resumedraft.action?draftId=1001",
+    "tinyui": "/x/AbCd",
+    "self": "https://wiki.example.invalid/rest/api/content/1001"
+   },
+   "_expandable": {
+    "container": "/rest/api/space/ENG",
+    "operations": "",
+    "children": "/rest/api/content/1001/child",
+    "restrictions": "/rest/api/content/1001/restriction/byOperation",
+    "descendants": "/rest/api/content/1001/descendant"
+   },
+   "metadata": {
+    "labels": {
+     "results": [],
+     "start": 0,
+     "limit": 200,
+     "size": 0,
+     "_links": {
+      "self": "https://wiki.example.invalid/rest/api/content/1001/label"
+     }
+    }
+   }
+  },
+  {
+   "id": "1002",
+   "type": "page",
+   "status": "current",
+   "title": "Release Checklist",
+   "space": {
+    "id": 98305,
+    "key": "OPS",
+    "name": "Engineering",
+    "type": "global",
+    "status": "current",
+    "_links": {
+     "webui": "/display/OPS",
+     "self": "https://wiki.example.invalid/rest/api/space/OPS"
+    },
+    "_expandable": {
+     "metadata": "",
+     "icon": "",
+     "description": "",
+     "homepage": "/rest/api/content/98306"
+    }
+   },
+   "extensions": {
+    "position": "none"
+   },
+   "_links": {
+    "webui": "/display/OPS/Release+Checklist",
+    "edit": "/pages/resumedraft.action?draftId=1002",
+    "tinyui": "/x/AbCd",
+    "self": "https://wiki.example.invalid/rest/api/content/1002"
+   },
+   "_expandable": {
+    "container": "/rest/api/space/OPS",
+    "operations": "",
+    "children": "/rest/api/content/1002/child",
+    "restrictions": "/rest/api/content/1002/restriction/byOperation",
+    "descendants": "/rest/api/content/1002/descendant"
+   },
+   "metadata": {
+    "labels": {
+     "results": [],
+     "start": 0,
+     "limit": 200,
+     "size": 0,
+     "_links": {
+      "self": "https://wiki.example.invalid/rest/api/content/1002/label"
+     }
+    }
+   }
+  }
+ ],
+ "start": 0,
+ "limit": 2,
+ "size": 2,
+ "_links": {
+  "base": "https://wiki.example.invalid",
+  "context": "",
+  "self": "https://wiki.example.invalid/rest/api/content/search",
+  "next": "/rest/api/content/search?cql=text+~+%22release%22&limit=2&start=2"
+ },
+ "totalSize": 3,
+ "cqlQuery": "text ~ \"release\"",
+ "searchDuration": 12
+}

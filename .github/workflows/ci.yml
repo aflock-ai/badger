@@ -1,0 +1,143 @@
+# Badger CI. The single required check is `ci success`.
+#
+# Public-safe by construction: no secrets, no write token, GitHub-hosted runners,
+# and `pull_request` (never `pull_request_target`), so a fork PR runs the same
+# jobs with nothing to steal. Private-only infrastructure must not be added here.
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  merge_group:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  TURBO_TELEMETRY_DISABLED: "1"
+  DO_NOT_TRACK: "1"
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/badger-bun
+      # One task at a time: packages/opencode's tsgo alone peaks at 5.2 GB RSS
+      # (measured), and parallel tasks OOM-killed the 7 GB private-repo runner
+      # (exit 137, run 36432586151).
+      - run: bun turbo typecheck --concurrency=1
+
+  unit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/badger-bun
+      # Tests create throwaway git repositories and commit into them.
+      - run: |
+          git config --global user.email "ci@badger.invalid"
+          git config --global user.name "badger ci"
+      # Search tests use the system rg. Without one, every test downloads ripgrep from GitHub
+      # on its own, and those downloads failed with transport errors (run 39328118432).
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ripgrep
+          rg --version
+      # The first PowerShell start on a cold runner took longer than the shell tests' 5 s
+      # budget (run 39328118432); start it once so the suite measures the tool, not the disk.
+      - run: pwsh -NoProfile -NonInteractive -Command 'exit 0'
+      # GITHUB_ACTIONS=false matches upstream's invocation: some suites switch
+      # reporters or skip on it.
+      # --max-concurrency=2: the CLI subprocess suites (test.concurrent) start
+      # ~10 cold `bun run src/index.ts` children at once. On a 2-vCPU runner they
+      # starve each other past the 30 s test timeout (run 36434208146, 10 fails);
+      # reproduced at --cpus=2 in Docker and fixed by this flag (13/13 pass).
+      - run: GITHUB_ACTIONS=false bun turbo test --continue --concurrency=1 -- --max-concurrency=2
+      # Badger's own TypeScript tests under testifysec/ are outside the turbo workspaces. These are
+      # the ones ported to the 2.0 base; requirements/ and commands/cli.presentation join as their
+      # ports land.
+      - working-directory: testifysec
+        run: bun test ./managed ./runtime ./commands/request.test.ts ./commands/settings.test.ts
+
+  go:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        module: [platform, gateway, broker, model-broker, packaging, execution, vm/guest, jade, connectors]
+    env:
+      GOWORK: "off"
+      GOFLAGS: "-mod=readonly"
+      GOTOOLCHAIN: local
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: testifysec/${{ matrix.module }}/go.mod
+          cache-dependency-path: testifysec/${{ matrix.module }}/go.mod
+      - working-directory: testifysec/${{ matrix.module }}
+        run: |
+          go build ./...
+          go test -count=1 ./...
+      # The model broker's Go, Python mirror and generated Lean corpus decide the same cases.
+      - if: matrix.module == 'model-broker'
+        working-directory: testifysec/model-broker
+        run: python3 formal/gen_corpus.py --check
+
+  scripts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: python3 -B testifysec/vm/test_extract_worker.py
+      - run: python3 -B testifysec/runtime/test_uat_linux.py
+      - run: python3 -B testifysec/native/test_fips_build.py
+
+  # The broker's Lean proofs (testifysec/model-broker/formal): the policy decision, admin, workspace
+  # and device token models, and the generated corpus. toolchain.sh installs the exact Lean release
+  # lean-toolchain names, checked by hash before it runs; there is no elan.
+  lean:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: sh testifysec/model-broker/formal/toolchain.sh --fetch >> "$GITHUB_PATH"
+      - working-directory: testifysec/model-broker/formal
+        run: lake build
+
+  ci-success:
+    name: ci success
+    if: ${{ always() }}
+    needs: [typecheck, unit, go, scripts, lean]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - env:
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          echo "results: $RESULTS"
+          for r in $RESULTS; do
+            if [ "$r" != "success" ]; then
+              echo "::error::a required job did not succeed ($r)"
+              exit 1
+            fi
+          done

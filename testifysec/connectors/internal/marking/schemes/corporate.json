@@ -1,0 +1,24 @@
+{
+ "schema": "badger.marking-scheme/v1",
+ "name": "corporate",
+ "version": 1,
+ "note": "A common enterprise data-classification policy. Each handling tag cites the reason it exists; carrying a tag does not make a deployment compliant with anything. Many policies call the top level HIGHLY CONFIDENTIAL: rename it in a copy of this file (a different scheme).",
+ "levels": [
+  {"name": "PUBLIC", "reason": "approved for release to anyone"},
+  {"name": "INTERNAL", "reason": "for staff and contractors; low harm if disclosed"},
+  {"name": "CONFIDENTIAL", "reason": "limited to those who need it; harm if disclosed"},
+  {"name": "RESTRICTED", "reason": "the most sensitive data; serious harm if disclosed"}
+ ],
+ "groups": [
+  {"name": "handling", "kind": "require", "position": 1, "minLevel": "INTERNAL", "tokens": [
+   {"token": "PHI", "minLevel": "CONFIDENTIAL", "reason": "protected health information under the HIPAA Privacy and Security Rules (45 CFR Parts 160 and 164)"},
+   {"token": "PII", "minLevel": "CONFIDENTIAL", "reason": "personal data under privacy laws such as the GDPR (Art. 4(1)) and the CCPA/CPRA"},
+   {"token": "PCI", "minLevel": "CONFIDENTIAL", "reason": "cardholder data under PCI DSS v4.0"},
+   {"token": "MNPI", "minLevel": "CONFIDENTIAL", "reason": "material non-public information (insider trading rules) and SOX-sensitive financial reporting"},
+   {"token": "PRIVILEGED", "minLevel": "CONFIDENTIAL", "reason": "attorney-client privileged communications and attorney work product"},
+   {"token": "TRADE SECRET", "minLevel": "CONFIDENTIAL", "reason": "trade secret protection requires reasonable secrecy measures (Defend Trade Secrets Act, 18 U.S.C. 1836)"},
+   {"token": "CUSTOMER", "minLevel": "CONFIDENTIAL", "suffix": true, "reason": "customer data held under contract (NDA, MSA); CUSTOMER-<ID> keeps one customer's data from another's"},
+   {"token": "EXPORT", "minLevel": "INTERNAL", "reason": "technology subject to the EAR (15 CFR Parts 730-774): who may see it matters, not only how secret it is"}
+  ]}
+ ]
+}

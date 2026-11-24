@@ -1,0 +1,135 @@
+{
+ "results": [
+  {
+   "id": "1001",
+   "type": "page",
+   "status": "current",
+   "title": "Release Runbook",
+   "space": {
+    "id": 98305,
+    "key": "ENG",
+    "name": "Engineering",
+    "type": "global",
+    "status": "current",
+    "_links": {
+     "webui": "/display/ENG",
+     "self": "https://wiki.example.invalid/rest/api/space/ENG"
+    },
+    "_expandable": {
+     "metadata": "",
+     "icon": "",
+     "description": "",
+     "homepage": "/rest/api/content/98306"
+    }
+   },
+   "version": {
+    "by": {
+     "type": "known",
+     "username": "dev-a",
+     "userKey": "8a7f80a2700000000000000000000001",
+     "profilePicture": {
+      "path": "/images/icons/profilepics/default.svg",
+      "width": 48,
+      "height": 48,
+      "isDefault": true
+     },
+     "displayName": "Dev A",
+     "_links": {
+      "self": "https://wiki.example.invalid/rest/api/user?key=8a7f80a2700000000000000000000001"
+     }
+    },
+    "when": "2026-09-01T10:00:00.000Z",
+    "message": "",
+    "number": 7,
+    "minorEdit": false,
+    "hidden": false,
+    "_links": {
+     "self": "https://wiki.example.invalid/rest/experimental/content/1001/version/7"
+    }
+   },
+   "ancestors": [
+    {
+     "id": "98306",
+     "type": "page",
+     "status": "current",
+     "title": "Engineering Home",
+     "_links": {
+      "webui": "/display/ENG/Engineering+Home"
+     }
+    },
+    {
+     "id": "1000",
+     "type": "page",
+     "status": "current",
+     "title": "Operations",
+     "_links": {
+      "webui": "/display/ENG/Operations"
+     }
+    }
+   ],
+   "body": {
+    "storage": {
+     "value": "<h2>Steps</h2><ol><li>Freeze <code>main</code>.</li><li>Tag it.</li></ol><p>Ask in <a href=\"https://chat.example.invalid/eng\">#eng</a>.</p>",
+     "representation": "storage",
+     "_expandable": {
+      "content": "/rest/api/content/1001"
+     }
+    },
+    "_expandable": {
+     "editor": "",
+     "view": "",
+     "export_view": "",
+     "styled_view": "",
+     "anonymous_export_view": ""
+    }
+   },
+   "metadata": {
+    "labels": {
+     "results": [
+      {
+       "prefix": "global",
+       "name": "runbook",
+       "id": "5000"
+      }
+     ],
+     "start": 0,
+     "limit": 200,
+     "size": 1,
+     "_links": {
+      "self": "https://wiki.example.invalid/rest/api/content/1001/label"
+     }
+    },
+    "_expandable": {
+     "currentuser": "",
+     "properties": "",
+     "frontend": "",
+     "editorHtml": ""
+    }
+   },
+   "extensions": {
+    "position": "none"
+   },
+   "_links": {
+    "webui": "/display/ENG/Release+Runbook",
+    "edit": "/pages/resumedraft.action?draftId=1001",
+    "tinyui": "/x/AbCd",
+    "self": "https://wiki.example.invalid/rest/api/content/1001"
+   },
+   "_expandable": {
+    "container": "/rest/api/space/ENG",
+    "operations": "",
+    "children": "/rest/api/content/1001/child",
+    "restrictions": "/rest/api/content/1001/restriction/byOperation",
+    "descendants": "/rest/api/content/1001/descendant"
+   }
+  }
+ ],
+ "start": 0,
+ "limit": 25,
+ "size": 1,
+ "_links": {
+  "base": "https://wiki.example.invalid",
+  "context": "",
+  "self": "https://wiki.example.invalid/rest/api/content/search"
+ }
+}

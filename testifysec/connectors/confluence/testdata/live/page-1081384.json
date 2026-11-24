@@ -1,0 +1,141 @@
+{
+ "id": "1081384",
+ "type": "page",
+ "status": "current",
+ "title": "lvb banner in panel",
+ "space": {
+  "id": 1114113,
+  "key": "ENG",
+  "name": "Engineering",
+  "status": "current",
+  "type": "global",
+  "creator": {
+   "type": "known",
+   "username": "admin",
+   "userKey": "ff808081908dfda301908dfe26760000",
+   "displayName": "admin",
+   "_links": {
+    "self": "http://service.example.invalid/confluence/rest/api/user?key=ff808081908dfda301908dfe26760000"
+   },
+   "_expandable": {
+    "profilePicture": "",
+    "status": ""
+   }
+  },
+  "creationDate": "2026-10-22T20:52:35.690+02:00",
+  "lastModifier": {
+   "type": "known",
+   "username": "admin",
+   "userKey": "ff808081908dfda301908dfe26760000",
+   "displayName": "admin",
+   "_links": {
+    "self": "http://service.example.invalid/confluence/rest/api/user?key=ff808081908dfda301908dfe26760000"
+   },
+   "_expandable": {
+    "profilePicture": "",
+    "status": ""
+   }
+  },
+  "lastModificationDate": "2026-10-22T20:52:35.690+02:00",
+  "_links": {
+   "webui": "/spaces/ENG/overview",
+   "self": "http://service.example.invalid/confluence/rest/api/space/ENG"
+  },
+  "_expandable": {
+   "metadata": "",
+   "permissions": "",
+   "icon": "",
+   "description": "",
+   "retentionPolicy": "",
+   "homepage": "/rest/api/content/1081346"
+  }
+ },
+ "version": {
+  "by": {
+   "type": "known",
+   "username": "admin",
+   "userKey": "ff808081908dfda301908dfe26760000",
+   "profilePicture": {
+    "path": "/confluence/images/icons/profilepics/default.svg",
+    "width": 48,
+    "height": 48,
+    "isDefault": true
+   },
+   "displayName": "admin",
+   "_links": {
+    "self": "http://service.example.invalid/confluence/rest/api/user?key=ff808081908dfda301908dfe26760000"
+   },
+   "_expandable": {
+    "status": ""
+   }
+  },
+  "when": "2026-10-22T20:52:44.388+02:00",
+  "message": "",
+  "number": 1,
+  "minorEdit": false,
+  "hidden": false,
+  "_links": {
+   "self": "http://service.example.invalid/confluence/rest/experimental/content/1081384/version/1"
+  },
+  "_expandable": {
+   "content": "/rest/api/content/1081384"
+  }
+ },
+ "ancestors": [],
+ "position": -1,
+ "body": {
+  "storage": {
+   "value": "<ac:structured-macro ac:name=\"info\" ac:schema-version=\"1\" ac:macro-id=\"8cfdefaa-9adf-4165-8e3c-8c02f8e050b9\"><ac:rich-text-body><p>SECRET</p></ac:rich-text-body></ac:structured-macro><p>Body after a panel.</p>",
+   "representation": "storage",
+   "_expandable": {
+    "content": "/rest/api/content/1081384"
+   }
+  },
+  "_expandable": {
+   "editor": "",
+   "view": "",
+   "export_view": "",
+   "styled_view": "",
+   "anonymous_export_view": ""
+  }
+ },
+ "metadata": {
+  "labels": {
+   "results": [],
+   "start": 0,
+   "limit": 200,
+   "size": 0,
+   "_links": {
+    "self": "http://service.example.invalid/confluence/rest/api/content/1081384/label"
+   }
+  },
+  "_expandable": {
+   "currentuser": "",
+   "reactionsCount": "",
+   "properties": "",
+   "frontend": "",
+   "editorHtml": ""
+  }
+ },
+ "extensions": {
+  "position": "none"
+ },
+ "_links": {
+  "webui": "/spaces/ENG/pages/1081384/lvb+banner+in+panel",
+  "edit": "/pages/resumedraft.action?draftId=1081384",
+  "tinyui": "/x/KIAQ",
+  "collection": "/rest/api/content",
+  "base": "http://service.example.invalid/confluence",
+  "context": "/confluence",
+  "self": "http://service.example.invalid/confluence/rest/api/content/1081384"
+ },
+ "_expandable": {
+  "container": "/rest/api/space/ENG",
+  "operations": "",
+  "children": "/rest/api/content/1081384/child",
+  "restrictions": "/rest/api/content/1081384/restriction/byOperation",
+  "history": "/rest/api/content/1081384/history",
+  "descendants": "/rest/api/content/1081384/descendant",
+  "relevantViewRestrictions": "/rest/api/content/1081384/restriction/relevantViewRestrictions"
+ }
+}

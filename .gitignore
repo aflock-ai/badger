@@ -1,0 +1,48 @@
+.DS_Store
+node_modules
+.worktrees
+.sst
+.env
+.env.local
+.idea
+.vscode
+.codex
+*~
+playground
+tmp
+dist
+dist-node
+ts-dist
+.turbo
+.typecheck-profiles
+**/.serena
+.serena/
+**/.omo
+.omo/
+/result
+refs
+Session.vim
+/opencode.json
+a.out
+target
+.scripts
+.cache
+.direnv/
+
+# Local dev files
+opencode-dev
+UPCOMING_CHANGELOG.md
+RELEASE_REVIEW.md
+logs/
+*.bun-build
+tsconfig.tsbuildinfo
+/artifacts/
+# husky's generated hook shims (it writes its own "*" .gitignore there; jade accepts only committed rules)
+.husky/_/
+
+# Pushgate step products (.pushgate/steps/*.sh)
+.pushgate-out/
+
+# Python bytecode
+__pycache__/
+*.pyc

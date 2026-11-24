@@ -1,0 +1,5 @@
+name = "jade-core"
+defaultTargets = ["JadeCore"]
+
+[[lean_lib]]
+name = "JadeCore"

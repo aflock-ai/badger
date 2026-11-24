@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/aflock-ai/badger/security/advisories/new
+    about: Report vulnerabilities privately. Do not open a public issue.
+  - name: Problem in OpenCode itself
+    url: https://github.com/anomalyco/opencode/issues
+    about: Bugs that also happen in a build without --managed belong to the OpenCode project.

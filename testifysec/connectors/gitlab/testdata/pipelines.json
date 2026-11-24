@@ -1,0 +1,1 @@
+[{"id":5501,"iid":88,"project_id":101,"status":"failed","source":"push","ref":"main","sha":"8f3a2c1d9e0b7a6f5c4d3e2f1a0b9c8d7e6f5a4b","created_at":"2026-09-05T08:00:00.000Z","web_url":"https://gitlab.example.invalid/platform/build/signer/-/pipelines/5501"}]

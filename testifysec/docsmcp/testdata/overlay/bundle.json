@@ -1,0 +1,11 @@
+{
+ "schema": 1,
+ "date": "2026-10-23",
+ "roots": [{"name": "badger", "version": "4.2.0", "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "dirty": false},
+           {"name": "infra", "version": "", "commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "dirty": false}],
+ "topics": [
+  {"id": "index", "section": "", "title": "Site guide", "description": "The site layer.", "sidebarLabel": "Site", "sidebarPosition": 0,
+   "body": "\n# Site guide\n\nUse the site's gateway settings.\n"}
+ ],
+ "config": []
+}

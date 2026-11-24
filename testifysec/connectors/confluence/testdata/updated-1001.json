@@ -1,0 +1,98 @@
+{
+ "id": "1001",
+ "type": "page",
+ "status": "current",
+ "title": "Release Runbook",
+ "space": {
+  "id": 98305,
+  "key": "ENG",
+  "name": "Engineering",
+  "type": "global",
+  "status": "current",
+  "_links": {
+   "webui": "/display/ENG",
+   "self": "https://wiki.example.invalid/rest/api/space/ENG"
+  },
+  "_expandable": {
+   "metadata": "",
+   "icon": "",
+   "description": "",
+   "homepage": "/rest/api/content/98306"
+  }
+ },
+ "history": {
+  "latest": true,
+  "_links": {
+   "self": "https://wiki.example.invalid/rest/api/content/1001/history"
+  }
+ },
+ "version": {
+  "by": {
+   "type": "known",
+   "username": "dev-a",
+   "userKey": "8a7f80a2700000000000000000000001",
+   "profilePicture": {
+    "path": "/images/icons/profilepics/default.svg",
+    "width": 48,
+    "height": 48,
+    "isDefault": true
+   },
+   "displayName": "Dev A",
+   "_links": {
+    "self": "https://wiki.example.invalid/rest/api/user?key=8a7f80a2700000000000000000000001"
+   }
+  },
+  "when": "2026-09-01T10:00:00.000Z",
+  "message": "",
+  "number": 8,
+  "minorEdit": false,
+  "hidden": false,
+  "_links": {
+   "self": "https://wiki.example.invalid/rest/experimental/content/1001/version/8"
+  }
+ },
+ "ancestors": [],
+ "body": {
+  "storage": {
+   "value": "<p>new</p>",
+   "representation": "storage",
+   "_expandable": {
+    "content": "/rest/api/content/1001"
+   }
+  },
+  "_expandable": {
+   "editor": "",
+   "view": "",
+   "export_view": "",
+   "styled_view": "",
+   "anonymous_export_view": ""
+  }
+ },
+ "extensions": {
+  "position": "none"
+ },
+ "_links": {
+  "webui": "/display/ENG/Release+Runbook",
+  "edit": "/pages/resumedraft.action?draftId=1001",
+  "tinyui": "/x/AbCd",
+  "collection": "/rest/api/content",
+  "base": "https://wiki.example.invalid",
+  "context": "",
+  "self": "https://wiki.example.invalid/rest/api/content/1001"
+ },
+ "_expandable": {
+  "container": "/rest/api/space/ENG",
+  "operations": "",
+  "children": "/rest/api/content/1001/child",
+  "restrictions": "/rest/api/content/1001/restriction/byOperation",
+  "descendants": "/rest/api/content/1001/descendant"
+ },
+ "metadata": {
+  "labels": {
+   "results": [],
+   "start": 0,
+   "limit": 200,
+   "size": 0
+  }
+ }
+}

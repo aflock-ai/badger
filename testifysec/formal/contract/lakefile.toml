@@ -1,0 +1,10 @@
+name = "badger-contract"
+version = "0.1.0"
+defaultTargets = ["Contract", "contract-vectors"]
+
+[[lean_lib]]
+name = "Contract"
+
+[[lean_exe]]
+name = "contract-vectors"
+root = "Main"

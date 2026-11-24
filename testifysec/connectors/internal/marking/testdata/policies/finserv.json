@@ -1,0 +1,18 @@
+{
+ "schema": "badger.marking-policy/v1",
+ "note": "Example policy for a financial-services deployment on the finserv example table. Test data and a documentation example.",
+ "scheme": {"file": "finserv.json", "sha256": "sha256:88792dd09233b1712a2f0e58a458e8908121bce5b1c47ad6fdcf5d3dab3e4654"},
+ "dataFlow": {
+  "classify": {
+   "RESTRICTED//PCI": ["connector:payments/*"],
+   "RESTRICTED//MNPI": ["connector:dealroom/*"],
+   "CONFIDENTIAL//PII": ["connector:crm/*"],
+   "RESTRICTED//MNPI/PCI/PII": ["model:internal-*"]
+  },
+  "default": "RESTRICTED",
+  "flowRules": [
+   {"deny": "MNPI->connector:chat/*", "message": "inside information stays out of chat"},
+   {"deny": "PCI->model:**"}
+  ]
+ }
+}

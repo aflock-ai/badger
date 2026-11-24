@@ -1,0 +1,51 @@
+import { describe, expect, mock, test } from "bun:test"
+import { existsSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs"
+import { tmpdir } from "node:os"
+import path from "node:path"
+
+// store.ts reads the profile directory from Electron's app at call time, and in a test "electron" is the npm
+// package, whose binary is a download from GitHub, absent offline (the pushgate step sandbox). These tests
+// pass every file path in, so a stub app is enough; the modules that import it load after the stub.
+mock.module("electron", () => ({ default: { app: { getPath: () => tmpdir() } } }))
+const { createSettingsStore } = await import("./store")
+
+const dir = () => mkdtempSync(path.join(tmpdir(), "opencode-settings-"))
+
+describe("settings store", () => {
+  test("reads the tab-indented file electron-store wrote and rewrites it in the same shape", () => {
+    const file = path.join(dir(), "opencode.settings")
+    writeFileSync(file, JSON.stringify({ windowIds: ["a"], backgroundColor: "#121212" }, null, "\t"))
+    const store = createSettingsStore(file)
+    expect(store.get("windowIds")).toEqual(["a"])
+    store.set("backgroundColor", "#ffffff")
+    expect(readFileSync(file, "utf8")).toBe(
+      JSON.stringify({ windowIds: ["a"], backgroundColor: "#ffffff" }, null, "\t"),
+    )
+    expect(createSettingsStore(file).get("backgroundColor")).toBe("#ffffff")
+  })
+
+  test("starts empty without a file, creates it on the first write, and refuses undefined", () => {
+    const file = path.join(dir(), "nested", "opencode.updater")
+    const store = createSettingsStore(file)
+    expect(store.get("ready")).toBeUndefined()
+    expect(existsSync(file)).toBe(false)
+    store.set("ready", { version: "1.0.0" })
+    // Like electron-store, undefined is refused instead of treated as a delete.
+    expect(() => store.set("ready", undefined)).toThrow(TypeError)
+    expect(store.get("ready")).toEqual({ version: "1.0.0" })
+    expect(JSON.parse(readFileSync(file, "utf8"))).toEqual({ ready: { version: "1.0.0" } })
+    store.delete("ready")
+    expect(store.get("ready")).toBeUndefined()
+    expect(readFileSync(file, "utf8")).toBe("{}")
+  })
+
+  test("sets an unreadable file aside instead of failing", () => {
+    const file = path.join(dir(), "opencode.settings")
+    writeFileSync(file, "{ not json")
+    const store = createSettingsStore(file)
+    expect(store.get("anything")).toBeUndefined()
+    expect(existsSync(`${file}.corrupt`)).toBe(true)
+    store.set("firstLaunchOnboardingComplete", true)
+    expect(JSON.parse(readFileSync(file, "utf8"))).toEqual({ firstLaunchOnboardingComplete: true })
+  })
+})

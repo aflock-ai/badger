@@ -1,0 +1,5 @@
+name = "vex-ratchet"
+defaultTargets = ["VexRatchet"]
+
+[[lean_lib]]
+name = "VexRatchet"

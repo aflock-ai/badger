@@ -1,0 +1,3 @@
+# One GitHub login per line. Commits by these people are left out of the generated
+# release-note credits (packages/script reads this file at import time, so it must exist).
+# Empty until the project names its maintainers.

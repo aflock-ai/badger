@@ -1,0 +1,104 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/api/v4/projects/1/merge_requests",
+  "query": {
+   "page": [
+    "1"
+   ],
+   "per_page": [
+    "20"
+   ]
+  },
+  "body": null
+ },
+ "status": 200,
+ "headers": {
+  "Content-Type": "application/json",
+  "Link": "<http://service.example.invalid/api/v4/projects/1/merge_requests?id=1&order_by=created_at&page=1&per_page=20&sort=desc&state=all&with_labels_details=false&with_merge_status_recheck=false>; rel=\"first\", <http://service.example.invalid/api/v4/projects/1/merge_requests?id=1&order_by=created_at&page=1&per_page=20&sort=desc&state=all&with_labels_details=false&with_merge_status_recheck=false>; rel=\"last\"",
+  "X-Page": "1",
+  "X-Per-Page": "20",
+  "X-Total": "1",
+  "X-Total-Pages": "1"
+ },
+ "body": [
+  {
+   "id": 1,
+   "iid": 1,
+   "project_id": 1,
+   "title": "lvb-seed MR",
+   "description": "MR body",
+   "state": "opened",
+   "created_at": "2026-10-22T18:29:57.887Z",
+   "updated_at": "2026-10-22T18:50:00.651Z",
+   "merged_by": null,
+   "merge_user": null,
+   "merged_at": null,
+   "closed_by": null,
+   "closed_at": null,
+   "target_branch": "main",
+   "source_branch": "lvb-change",
+   "user_notes_count": 7,
+   "upvotes": 0,
+   "downvotes": 0,
+   "author": {
+    "id": 1,
+    "username": "root",
+    "public_email": null,
+    "name": "Administrator",
+    "state": "active",
+    "locked": false,
+    "avatar_url": "https://www.gravatar.com/avatar/6a3931fa0afe96c29f23c056f06b6b7f90aaee6078ea2656b1f60c040a3e85c0?s=80&d=identicon",
+    "web_url": "http://service.example.invalid/root",
+    "bot": false
+   },
+   "assignees": [],
+   "assignee": null,
+   "reviewers": [],
+   "source_project_id": 1,
+   "target_project_id": 1,
+   "labels": [
+    "bug",
+    "classification::CONFIDENTIAL",
+    "team::alpha"
+   ],
+   "draft": false,
+   "imported": false,
+   "imported_from": "none",
+   "work_in_progress": false,
+   "milestone": null,
+   "merge_when_pipeline_succeeds": false,
+   "merge_status": "can_be_merged",
+   "detailed_merge_status": "mergeable",
+   "merge_after": null,
+   "sha": "8823c5099c50bc37153b33d13d59916440787b9f",
+   "merge_commit_sha": null,
+   "squash_commit_sha": null,
+   "discussion_locked": null,
+   "should_remove_source_branch": null,
+   "force_remove_source_branch": true,
+   "prepared_at": "2026-10-22T18:30:03.419Z",
+   "reference": "!1",
+   "references": {
+    "short": "!1",
+    "relative": "!1",
+    "full": "lvb-top/sub1/sub2/widget!1"
+   },
+   "web_url": "http://service.example.invalid/lvb-top/sub1/sub2/widget/-/merge_requests/1",
+   "time_stats": {
+    "time_estimate": 0,
+    "total_time_spent": 0,
+    "human_time_estimate": null,
+    "human_total_time_spent": null
+   },
+   "squash": false,
+   "squash_on_merge": false,
+   "task_completion_status": {
+    "count": 0,
+    "completed_count": 0
+   },
+   "has_conflicts": false,
+   "blocking_discussions_resolved": true
+  }
+ ]
+}

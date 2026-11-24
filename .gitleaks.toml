@@ -1,0 +1,32 @@
+# Secret-scan configuration. Run: gitleaks dir . --config .gitleaks.toml
+# Every allowlist entry names a file of synthetic or generated values and says why.
+title = "Badger"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Redaction tests: these strings are fake credentials in the formats the redactor must catch."
+paths = ['''packages/core/test/tool-output-redaction\.test\.ts''', '''packages/http-recorder/test/redaction\.test\.ts''', '''packages/http-recorder/test/http\.test\.ts''']
+
+[[allowlists]]
+description = "Provider recordings: an expired signed CDN URL in a recorded response."
+paths = ['''packages/ai/test/fixtures/recordings/runway-video/generates-a-video\.json''']
+
+[[allowlists]]
+description = "Fake tokens in test fixtures (not valid for any service)."
+paths = [
+  '''packages/core/test/requirements/(custody|launch)\.test\.ts''',
+  '''packages/tui/test/config(-v2)?\.test\.tsx''',
+  '''testifysec/broker/vzsession/process_test\.go''',
+]
+
+[[allowlists]]
+description = "Translated UI strings and key-binding labels that look like API keys to the entropy rule."
+targetRules = ["generic-api-key"]
+paths = [
+  '''packages/console/app/src/i18n/[a-z]+\.ts''',
+  '''packages/app/src/runtime/i18n/language\.tsx''',
+  '''packages/app/src/shell/titlebar/tab-strip\.tsx''',
+  '''packages/session-ui/src/components/tool-count-summary\.tsx''',
+]

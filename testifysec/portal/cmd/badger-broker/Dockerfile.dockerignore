@@ -1,0 +1,7 @@
+**/.git
+**/*_test.go
+**/testdata
+model-broker/formal
+model-broker/examples
+portal/api
+portal/contract

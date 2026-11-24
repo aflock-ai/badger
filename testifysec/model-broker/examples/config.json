@@ -1,0 +1,96 @@
+{
+  "listen": {
+    "internal": ":8080",
+    "edge": ":8081",
+    "provision": ":8082",
+    "admin": ":8083"
+  },
+  "issuers": [
+    {
+      "id": "gitlab-1",
+      "type": "gitlab",
+      "primary": true,
+      "issuer": "https://gitlab.example.com",
+      "audience": "badger-broker",
+      "claims_header": "x-broker-ci-claims",
+      "max_token_lifetime_seconds": 3600,
+      "config_ref_template": "gitlab.example.com/{project_path}//.gitlab-ci.yml@refs/heads/{ref}"
+    },
+    {
+      "id": "actions-1",
+      "type": "generic",
+      "issuer": "https://token.actions.example.com",
+      "audience": "badger-broker",
+      "claims_header": "x-broker-ci-claims-actions-1",
+      "max_token_lifetime_seconds": 600,
+      "require": {"repository_owner": "example-org"},
+      "ref_prefix": "refs/heads/",
+      "mapping": {
+        "sub": {"claim": "sub"},
+        "project": {"claim": "repository"},
+        "ref": {"claim": "ref"},
+        "ref_type": {"claim": "ref_type"},
+        "protected": {"const": "true"},
+        "source": {"claim": "event_name"},
+        "triggered_by": {"claim": "actor"},
+        "config_ref": {"claim": "job_workflow_ref"}
+      },
+      "config_ref_template": "{project_path}/.github/workflows/ci.yml@refs/heads/{ref}"
+    }
+  ],
+  "clock_skew_seconds": 60,
+  "sources": [
+    "web",
+    "push",
+    "schedule"
+  ],
+  "headers": {
+    "principal": "x-broker-principal",
+    "admin_id": "x-broker-user-id",
+    "admin_name": "x-broker-user",
+    "admin_role": "x-broker-role"
+  },
+  "human_principals": [
+    "alice@example.com",
+    "bob@example.com"
+  ],
+  "admin_roles": [
+    "superAdmin"
+  ],
+  "two_person_rule": false,
+  "max_named_branch_ttl_hours": 336,
+  "allowed_origins": [
+    "https://broker.example.com"
+  ],
+  "database": {
+    "dsn_file": "/etc/badger-broker/database/dsn",
+    "owner_dsn_file": "/etc/badger-broker/database/owner-dsn",
+    "service_role": "badger_service"
+  },
+  "ceiling_marking": "UNCLASSIFIED",
+  "seed_policy_file": "/etc/badger-broker/policy.json",
+  "max_concurrent_upstream": 4,
+  "upstream": {"response_header_seconds": 180, "request_seconds": 240, "server_write_seconds": 250},
+  "routes": [
+    {
+      "model": "model-a",
+      "upstream_url": "https://llm.example.com/openai/deployments/model-a/chat/completions",
+      "auth_header": "api-key",
+      "key_file": "/credentials/key",
+      "api_version": "2025-04-01-preview",
+      "reasoning_map": {
+        "minimal": "low"
+      },
+      "no_reasoning_with_tools": true
+    },
+    {
+      "model": "model-b",
+      "upstream_url": "https://llm.example.com/openai/deployments/model-b/chat/completions",
+      "auth_header": "api-key",
+      "key_file": "/credentials/key",
+      "api_version": "2025-04-01-preview"
+    }
+  ],
+  "provisioner_key_file": "/etc/badger-broker/provisioner/key",
+  "workspace_token_ttl_hours": 168
+}

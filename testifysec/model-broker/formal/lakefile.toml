@@ -1,0 +1,5 @@
+name = "badger-broker"
+defaultTargets = ["BadgerBroker"]
+
+[[lean_lib]]
+name = "BadgerBroker"

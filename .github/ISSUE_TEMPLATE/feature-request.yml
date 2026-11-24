@@ -1,0 +1,25 @@
+name: Feature request
+description: Propose a change to Badger
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Badger's scope is narrow: it restricts what a session can reach. Changes to OpenCode's agent or TUI belong at the OpenCode project.
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What can you not do today, and in what deployment?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you propose
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Effect on the trust boundary
+      description: Does this let a session reach anything it cannot reach now? If yes, say what and why that is acceptable.

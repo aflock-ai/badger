@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "date": "2026-10-24",
+ "roots": [{"name": "badger", "version": "4.3.0", "commit": "0123456789abcdef0123456789abcdef01234567", "dirty": false}],
+ "topics": [
+  {"id": "admin/install-gateway", "section": "admin", "title": "Install the model gateway", "description": "Build and configure hardened-gateway.", "sidebarLabel": "Install the gateway", "sidebarPosition": 10,
+   "body": "\n# Install the model gateway\n\nIntro text.\n\n## Build\n\nRun go build.\n\n```sh\n# not a heading\n```\n\n## Write the configuration\n\nSet maxRecords.\n\n## Build\n\nA second build section.\n\n*Generated from badger 4.3.0 at 0123456789ab on 2026-10-24.*\n"},
+  {"id": "index", "section": "", "title": "Badger", "description": "What Badger is.", "sidebarLabel": "Overview", "sidebarPosition": 0,
+   "body": "\n# Badger\n\nA coding agent for enclaves.\n"}
+ ],
+ "config": [
+  {"component": "conngw", "title": "Connector gateway (conngw)", "root": "badger", "fields": [
+   {"key": "listen", "type": "string", "optional": false, "default": "", "doc": "e.g. \":8443\"", "file": "testifysec/connectors/cmd/conngw/main.go", "line": 88, "symbol": "config.Listen"},
+   {"key": "maxStreams", "type": "int", "optional": false, "default": "64", "doc": "Stream bounds; zero takes the default. default 64", "file": "testifysec/connectors/cmd/conngw/main.go", "line": 97, "symbol": "config.MaxStreams"}
+  ]}
+ ]
+}

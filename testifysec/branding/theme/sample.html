@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Badger theme sample</title>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="#">Badger portal</a><nav><a href="#">Profiles</a><a href="#" aria-current="page">Users</a></nav><span class="spacer"></span><span class="who">Signed in as admin@example.com (admin)</span></header>
+<main class="page stack">
+<h1>Add a user</h1>
+<div class="notice is-danger" role="alert">The user was not added. Fix the field marked below and submit again.</div>
+<div class="card">
+<form class="form" method="post" action="#">
+  <div class="field">
+    <label for="subject" class="required">Subject</label>
+    <input id="subject" name="subject" value="not-an-email" aria-invalid="true" aria-describedby="subject-err">
+    <div class="field-error" id="subject-err">Enter the user's email address, for example name@example.com.</div>
+  </div>
+  <div class="field">
+    <label for="role">Role</label>
+    <select id="role" name="role"><option>none</option><option>approver</option><option>admin</option><option>auditor</option></select>
+    <div class="help">A role takes effect after a second admin approves it.</div>
+  </div>
+  <div class="field">
+    <label for="reason">Reason</label>
+    <textarea id="reason" name="reason" rows="3" placeholder="Kept in the audit log"></textarea>
+  </div>
+  <fieldset>
+    <legend>Deployments</legend>
+    <label class="check"><input type="checkbox" checked> dev</label>
+    <label class="check"><input type="checkbox"> team</label>
+  </fieldset>
+  <div class="field">
+    <label for="ro">Tenant</label>
+    <input id="ro" value="default" disabled>
+  </div>
+  <div class="actions"><button type="submit">Add user</button><button type="button">Cancel</button><button type="button" class="btn-danger">Offboard</button><a class="btn btn-link" href="#">View audit log</a></div>
+</form>
+</div>
+<div class="row"><span class="badge">pending</span><span class="badge is-ok">active</span><span class="badge is-warning">expiring</span><span class="badge is-danger">offboarded</span></div>
+<div class="notice is-info">Changes take effect after approval.</div>
+<div class="notice is-ok">Saved as version 7.</div>
+<div class="notice is-warning">This profile expires in 3 days.</div>
+</main>
+</body>
+</html>

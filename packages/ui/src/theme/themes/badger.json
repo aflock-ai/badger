@@ -1,0 +1,51 @@
+{
+  "$schema": "https://opencode.ai/desktop-theme.json",
+  "name": "Badger",
+  "id": "badger",
+  "light": {
+    "palette": {
+      "neutral": "#f6f7f9",
+      "ink": "#1b1f24",
+      "primary": "#1d5fc4",
+      "accent": "#1d5fc4",
+      "success": "#1b7a3d",
+      "warning": "#8a5300",
+      "error": "#b3261e",
+      "info": "#1d5fc4",
+      "interactive": "#1d5fc4",
+      "diffAdd": "#1b7a3d",
+      "diffDelete": "#b3261e"
+    },
+    "overrides": {
+      "text-weak": "#535c67",
+      "syntax-comment": "#535c67",
+      "markdown-text": "#1b1f24",
+      "markdown-link": "#1d5fc4",
+      "markdown-heading": "#1b1f24",
+      "markdown-block-quote": "#535c67"
+    }
+  },
+  "dark": {
+    "palette": {
+      "neutral": "#111418",
+      "ink": "#e6e9ed",
+      "primary": "#7eaaf7",
+      "accent": "#7eaaf7",
+      "success": "#63cb8c",
+      "warning": "#f0b450",
+      "error": "#ff8f85",
+      "info": "#7eaaf7",
+      "interactive": "#7eaaf7",
+      "diffAdd": "#63cb8c",
+      "diffDelete": "#ff8f85"
+    },
+    "overrides": {
+      "text-weak": "#a2abb6",
+      "syntax-comment": "#a2abb6",
+      "markdown-text": "#e6e9ed",
+      "markdown-link": "#7eaaf7",
+      "markdown-heading": "#e6e9ed",
+      "markdown-block-quote": "#a2abb6"
+    }
+  }
+}

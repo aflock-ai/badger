@@ -1,0 +1,38 @@
+# Deployment template: pin and validate the approved collector distribution.
+extensions:
+  bearertokenauth/gateway:
+    filename: /run/secrets/gateway-collector-token
+  basicauth/loki:
+    client_auth:
+      username: ${env:LOKI_USERNAME}
+      password: ${env:LOKI_PASSWORD}
+  file_storage/audit:
+    directory: /var/lib/otelcol/audit
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4318
+        tls:
+          cert_file: /run/secrets/collector.crt
+          key_file: /run/secrets/collector.key
+        auth:
+          authenticator: bearertokenauth/gateway
+exporters:
+  otlphttp/loki:
+    endpoint: https://loki.example.test/otlp
+    auth:
+      authenticator: basicauth/loki
+    sending_queue:
+      enabled: true
+      queue_size: 1000
+      storage: file_storage/audit
+    retry_on_failure:
+      enabled: true
+      max_elapsed_time: 0s
+service:
+  extensions: [bearertokenauth/gateway, basicauth/loki, file_storage/audit]
+  pipelines:
+    logs:
+      receivers: [otlp]
+      exporters: [otlphttp/loki]

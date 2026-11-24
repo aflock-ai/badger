@@ -1,0 +1,301 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/api/v4/projects/1/issues",
+  "query": {
+   "labels": [
+    "bug"
+   ],
+   "page": [
+    "1"
+   ],
+   "per_page": [
+    "20"
+   ]
+  },
+  "body": null
+ },
+ "status": 200,
+ "headers": {
+  "Content-Type": "application/json",
+  "Link": "<http://service.example.invalid/api/v4/projects/1/issues?id=1&labels%5B%5D=bug&order_by=created_at&page=1&per_page=20&sort=desc&state=all&with_labels_details=false>; rel=\"first\", <http://service.example.invalid/api/v4/projects/1/issues?id=1&labels%5B%5D=bug&order_by=created_at&page=1&per_page=20&sort=desc&state=all&with_labels_details=false>; rel=\"last\"",
+  "X-Page": "1",
+  "X-Per-Page": "20",
+  "X-Total": "4",
+  "X-Total-Pages": "1"
+ },
+ "body": [
+  {
+   "id": 10119,
+   "iid": 18,
+   "project_id": 1,
+   "title": "qa upper",
+   "description": null,
+   "state": "opened",
+   "created_at": "2026-10-22T18:48:24.099Z",
+   "updated_at": "2026-10-22T18:48:24.415Z",
+   "closed_at": null,
+   "closed_by": null,
+   "labels": [
+    "bug"
+   ],
+   "milestone": null,
+   "assignees": [],
+   "author": {
+    "id": 1,
+    "username": "root",
+    "public_email": null,
+    "name": "Administrator",
+    "state": "active",
+    "locked": false,
+    "avatar_url": "https://www.gravatar.com/avatar/6a3931fa0afe96c29f23c056f06b6b7f90aaee6078ea2656b1f60c040a3e85c0?s=80&d=identicon",
+    "web_url": "http://service.example.invalid/root"
+   },
+   "type": "ISSUE",
+   "assignee": null,
+   "user_notes_count": 0,
+   "merge_requests_count": 0,
+   "upvotes": 0,
+   "downvotes": 0,
+   "start_date": null,
+   "due_date": null,
+   "confidential": false,
+   "discussion_locked": null,
+   "issue_type": "issue",
+   "web_url": "http://service.example.invalid/lvb-top/sub1/sub2/widget/-/work_items/18",
+   "time_stats": {
+    "time_estimate": 0,
+    "total_time_spent": 0,
+    "human_time_estimate": null,
+    "human_total_time_spent": null
+   },
+   "task_completion_status": {
+    "count": 0,
+    "completed_count": 0
+   },
+   "has_tasks": true,
+   "task_status": "",
+   "_links": {
+    "self": "http://service.example.invalid/api/v4/projects/1/issues/18",
+    "notes": "http://service.example.invalid/api/v4/projects/1/issues/18/notes",
+    "award_emoji": "http://service.example.invalid/api/v4/projects/1/issues/18/award_emoji",
+    "project": "http://service.example.invalid/api/v4/projects/1",
+    "closed_as_duplicate_of": null
+   },
+   "references": {
+    "short": "#18",
+    "relative": "#18",
+    "full": "lvb-top/sub1/sub2/widget#18"
+   },
+   "severity": "UNKNOWN",
+   "moved_to_id": null,
+   "imported": false,
+   "imported_from": "none",
+   "service_desk_reply_to": null
+  },
+  {
+   "id": 10118,
+   "iid": 17,
+   "project_id": 1,
+   "title": "qa crlf",
+   "description": null,
+   "state": "opened",
+   "created_at": "2026-10-22T18:48:23.145Z",
+   "updated_at": "2026-10-22T18:48:23.547Z",
+   "closed_at": null,
+   "closed_by": null,
+   "labels": [
+    "bug"
+   ],
+   "milestone": null,
+   "assignees": [],
+   "author": {
+    "id": 1,
+    "username": "root",
+    "public_email": null,
+    "name": "Administrator",
+    "state": "active",
+    "locked": false,
+    "avatar_url": "https://www.gravatar.com/avatar/6a3931fa0afe96c29f23c056f06b6b7f90aaee6078ea2656b1f60c040a3e85c0?s=80&d=identicon",
+    "web_url": "http://service.example.invalid/root"
+   },
+   "type": "ISSUE",
+   "assignee": null,
+   "user_notes_count": 1,
+   "merge_requests_count": 0,
+   "upvotes": 0,
+   "downvotes": 0,
+   "start_date": null,
+   "due_date": null,
+   "confidential": false,
+   "discussion_locked": null,
+   "issue_type": "issue",
+   "web_url": "http://service.example.invalid/lvb-top/sub1/sub2/widget/-/work_items/17",
+   "time_stats": {
+    "time_estimate": 0,
+    "total_time_spent": 0,
+    "human_time_estimate": null,
+    "human_total_time_spent": null
+   },
+   "task_completion_status": {
+    "count": 0,
+    "completed_count": 0
+   },
+   "has_tasks": true,
+   "task_status": "",
+   "_links": {
+    "self": "http://service.example.invalid/api/v4/projects/1/issues/17",
+    "notes": "http://service.example.invalid/api/v4/projects/1/issues/17/notes",
+    "award_emoji": "http://service.example.invalid/api/v4/projects/1/issues/17/award_emoji",
+    "project": "http://service.example.invalid/api/v4/projects/1",
+    "closed_as_duplicate_of": null
+   },
+   "references": {
+    "short": "#17",
+    "relative": "#17",
+    "full": "lvb-top/sub1/sub2/widget#17"
+   },
+   "severity": "UNKNOWN",
+   "moved_to_id": null,
+   "imported": false,
+   "imported_from": "none",
+   "service_desk_reply_to": null
+  },
+  {
+   "id": 10107,
+   "iid": 6,
+   "project_id": 1,
+   "title": "qa plain",
+   "description": null,
+   "state": "opened",
+   "created_at": "2026-10-22T18:48:13.160Z",
+   "updated_at": "2026-10-22T18:48:13.560Z",
+   "closed_at": null,
+   "closed_by": null,
+   "labels": [
+    "bug"
+   ],
+   "milestone": null,
+   "assignees": [],
+   "author": {
+    "id": 1,
+    "username": "root",
+    "public_email": null,
+    "name": "Administrator",
+    "state": "active",
+    "locked": false,
+    "avatar_url": "https://www.gravatar.com/avatar/6a3931fa0afe96c29f23c056f06b6b7f90aaee6078ea2656b1f60c040a3e85c0?s=80&d=identicon",
+    "web_url": "http://service.example.invalid/root"
+   },
+   "type": "ISSUE",
+   "assignee": null,
+   "user_notes_count": 0,
+   "merge_requests_count": 0,
+   "upvotes": 0,
+   "downvotes": 0,
+   "start_date": null,
+   "due_date": null,
+   "confidential": false,
+   "discussion_locked": null,
+   "issue_type": "issue",
+   "web_url": "http://service.example.invalid/lvb-top/sub1/sub2/widget/-/work_items/6",
+   "time_stats": {
+    "time_estimate": 0,
+    "total_time_spent": 0,
+    "human_time_estimate": null,
+    "human_total_time_spent": null
+   },
+   "task_completion_status": {
+    "count": 0,
+    "completed_count": 0
+   },
+   "has_tasks": true,
+   "task_status": "",
+   "_links": {
+    "self": "http://service.example.invalid/api/v4/projects/1/issues/6",
+    "notes": "http://service.example.invalid/api/v4/projects/1/issues/6/notes",
+    "award_emoji": "http://service.example.invalid/api/v4/projects/1/issues/6/award_emoji",
+    "project": "http://service.example.invalid/api/v4/projects/1",
+    "closed_as_duplicate_of": null
+   },
+   "references": {
+    "short": "#6",
+    "relative": "#6",
+    "full": "lvb-top/sub1/sub2/widget#6"
+   },
+   "severity": "UNKNOWN",
+   "moved_to_id": null,
+   "imported": false,
+   "imported_from": "none",
+   "service_desk_reply_to": null
+  },
+  {
+   "id": 1,
+   "iid": 1,
+   "project_id": 1,
+   "title": "lvb-seed-1 plain issue",
+   "description": "Plain description.",
+   "state": "opened",
+   "created_at": "2026-10-22T18:29:54.600Z",
+   "updated_at": "2026-10-22T18:50:00.430Z",
+   "closed_at": null,
+   "closed_by": null,
+   "labels": [
+    "bug"
+   ],
+   "milestone": null,
+   "assignees": [],
+   "author": {
+    "id": 1,
+    "username": "root",
+    "public_email": null,
+    "name": "Administrator",
+    "state": "active",
+    "locked": false,
+    "avatar_url": "https://www.gravatar.com/avatar/6a3931fa0afe96c29f23c056f06b6b7f90aaee6078ea2656b1f60c040a3e85c0?s=80&d=identicon",
+    "web_url": "http://service.example.invalid/root"
+   },
+   "type": "ISSUE",
+   "assignee": null,
+   "user_notes_count": 6,
+   "merge_requests_count": 0,
+   "upvotes": 0,
+   "downvotes": 0,
+   "start_date": null,
+   "due_date": null,
+   "confidential": false,
+   "discussion_locked": null,
+   "issue_type": "issue",
+   "web_url": "http://service.example.invalid/lvb-top/sub1/sub2/widget/-/work_items/1",
+   "time_stats": {
+    "time_estimate": 0,
+    "total_time_spent": 0,
+    "human_time_estimate": null,
+    "human_total_time_spent": null
+   },
+   "task_completion_status": {
+    "count": 0,
+    "completed_count": 0
+   },
+   "has_tasks": true,
+   "task_status": "0 of 0 checklist items completed",
+   "_links": {
+    "self": "http://service.example.invalid/api/v4/projects/1/issues/1",
+    "notes": "http://service.example.invalid/api/v4/projects/1/issues/1/notes",
+    "award_emoji": "http://service.example.invalid/api/v4/projects/1/issues/1/award_emoji",
+    "project": "http://service.example.invalid/api/v4/projects/1",
+    "closed_as_duplicate_of": null
+   },
+   "references": {
+    "short": "#1",
+    "relative": "#1",
+    "full": "lvb-top/sub1/sub2/widget#1"
+   },
+   "severity": "UNKNOWN",
+   "moved_to_id": null,
+   "imported": false,
+   "imported_from": "none",
+   "service_desk_reply_to": null
+  }
+ ]
+}

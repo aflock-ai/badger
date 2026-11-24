@@ -1,0 +1,442 @@
+openapi: 3.1.0
+info:
+  title: Badger management portal API
+  version: 0.7.0
+  description: >
+    Open specification owned by Badger (testifysec/PORTAL.md). Any implementation, the
+    offline portal or a platform, conforms by passing testifysec/portal/contract.
+    The tenant comes from the deployment or the credential, never from the path.
+    status "implemented" is in this change; "spec" is specified here and built later.
+servers:
+  - url: https://portal.example.invalid
+security:
+  - idpSession: []
+paths:
+  /api/v1/profiles:
+    get:
+      x-badger-status: implemented
+      summary: Latest signed version of every profile (admin, approver, auditor)
+      responses:
+        "200":
+          description: Versions, without envelopes
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items]
+                properties:
+                  items: { type: array, items: { $ref: "#/components/schemas/Version" } }
+        default: { $ref: "#/components/responses/Problem" }
+  /api/v1/profiles/{profileId}/versions:
+    parameters: [{ $ref: "#/components/parameters/ProfileId" }]
+    get:
+      x-badger-status: implemented
+      summary: Every version of a profile, newest first, without envelopes (admin, approver, auditor)
+      responses:
+        "200":
+          description: Versions
+          content:
+            application/json:
+              schema: { type: object, required: [items], properties: { items: { type: array, items: { $ref: "#/components/schemas/Version" } } } }
+        default: { $ref: "#/components/responses/Problem" }
+    post:
+      x-badger-status: implemented
+      summary: Sign the next version (admin). The server assigns tenant and sequence.
+      description: >-
+        Without schemaVersion (or with 1) the server signs a v1 profile. schemaVersion 3 signs a v3
+        profile (testifysec/managed/profile-v3.ts) and requires gateway and connectors; the server
+        refuses any entry admission v3 would refuse, any connector marked above the gateway, and a
+        profile whose admission output would exceed gateway v3's 16384-byte bound.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [deploymentId, notBefore, expiresAt]
+              properties:
+                schemaVersion: { type: integer, enum: [1, 3] }
+                deploymentId: { $ref: "#/components/schemas/Identifier" }
+                notBefore: { $ref: "#/components/schemas/Instant" }
+                expiresAt: { $ref: "#/components/schemas/Instant" }
+                gateway:
+                  type: object
+                  additionalProperties: false
+                  required: [classification]
+                  properties: { classification: { type: string, description: The marking the model gateway is accredited for } }
+                connectors: { type: array, maxItems: 16, items: { $ref: "#/components/schemas/Connector" } }
+      responses:
+        "201":
+          description: Signed and stored
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Version" }
+        default: { $ref: "#/components/responses/Problem" }
+  /api/v1/profiles/{profileId}/trust:
+    parameters: [{ $ref: "#/components/parameters/ProfileId" }]
+    get:
+      x-badger-status: implemented
+      summary: Build-provisioned admission trust input for this profile (admin, auditor)
+      description: Exactly the schema testifysec/managed/README.md accepts; minimumSequence is the latest sequence.
+      responses:
+        "200":
+          description: Trust input
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [schemaVersion, publicKeys, threshold, tenantId, deploymentId, profileId, minimumSequence]
+                properties:
+                  schemaVersion: { const: 1 }
+                  publicKeys: { type: array, minItems: 1, maxItems: 16, items: { type: string } }
+                  threshold: { type: integer, minimum: 1 }
+                  tenantId: { $ref: "#/components/schemas/Identifier" }
+                  deploymentId: { $ref: "#/components/schemas/Identifier" }
+                  profileId: { $ref: "#/components/schemas/Identifier" }
+                  minimumSequence: { $ref: "#/components/schemas/Sequence" }
+        default: { $ref: "#/components/responses/Problem" }
+  /api/v1/profiles/{profileId}/versions/{sequence}:
+    parameters: [{ $ref: "#/components/parameters/ProfileId" }, { $ref: "#/components/parameters/SequencePath" }]
+    get:
+      x-badger-status: implemented
+      summary: One version, without its envelope (admin, approver, auditor)
+      responses:
+        "200": { description: Version, content: { application/json: { schema: { $ref: "#/components/schemas/Version" } } } }
+        default: { $ref: "#/components/responses/Problem" }
+  /api/v1/profiles/{profileId}/versions/{sequence}/envelope:
+    parameters: [{ $ref: "#/components/parameters/ProfileId" }, { $ref: "#/components/parameters/SequencePath" }]
+    get:
+      x-badger-status: implemented
+      summary: The DSSE envelope exactly as signed (admin, approver, auditor)
+      responses:
+        "200":
+          description: Envelope bytes; sha256 equals the version's envelopeSha256
+          headers:
+            ETag: { description: '"sha256:<envelopeSha256>"', schema: { type: string } }
+          content:
+            application/vnd.dsse.envelope.v1+json: {}
+        default: { $ref: "#/components/responses/Problem" }
+  /api/v1/deployments/{deploymentId}/assignment:
+    parameters:
+      - { name: deploymentId, in: path, required: true, schema: { $ref: "#/components/schemas/Identifier" } }
+    get:
+      x-badger-status: implemented
+      summary: The version a deployment (device group) runs (admin, approver, auditor)
+      responses:
+        "200": { description: Assignment, content: { application/json: { schema: { $ref: "#/components/schemas/Assignment" } } } }
+        default: { $ref: "#/components/responses/Problem" }
+    put:
+      x-badger-status: implemented
+      summary: Point a deployment at a signed version of its profile (admin)
+      description: Forward only. An older sequence, or a different profile once one is assigned, is 409 rollback; roll back by signing a new version.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [profileId, sequence]
+              properties:
+                profileId: { $ref: "#/components/schemas/Identifier" }
+                sequence: { $ref: "#/components/schemas/Sequence" }
+      responses:
+        "200": { description: Assignment, content: { application/json: { schema: { $ref: "#/components/schemas/Assignment" } } } }
+        default: { $ref: "#/components/responses/Problem" }
+  /.well-known/badger-portal:
+    get:
+      x-badger-status: implemented
+      summary: Discovery; public, names no tenant, deployment or key
+      security: []
+      responses:
+        "200":
+          description: Discovery document
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [specVersion, apiBase, profilePayloadType, authentication]
+                properties:
+                  specVersion: { type: string }
+                  apiBase: { type: string, example: /api/v1 }
+                  profilePayloadType: { type: string }
+                  authentication: { type: array, items: { type: string, enum: [idp] } }
+  /api/v1/users:
+    get:
+      x-badger-status: implemented
+      summary: The user directory (admin, approver, auditor)
+      responses:
+        "200":
+          description: Users
+          content:
+            application/json:
+              schema: { type: object, required: [items], properties: { items: { type: array, items: { $ref: "#/components/schemas/User" } } } }
+        default: { $ref: "#/components/responses/Problem" }
+    post:
+      x-badger-status: implemented
+      summary: Provision an identity the enclave PKI or IdP issued (admin). Pending, no role, until an approver activates it. Inviting a pending user with no open activation request issues one; otherwise 409.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [kind, subject]
+              properties:
+                kind: { type: string, enum: [oidc] }
+                subject: { type: string, maxLength: 1024, description: IdP subject }
+      responses:
+        "201":
+          description: The pending user and its activation request
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [user, activation]
+                properties:
+                  user: { $ref: "#/components/schemas/User" }
+                  activation: { $ref: "#/components/schemas/RoleRequest" }
+        default: { $ref: "#/components/responses/Problem" }
+  /api/v1/users/{userId}/drop-role:
+    parameters: [{ $ref: "#/components/parameters/UserId" }]
+    post:
+      x-badger-status: implemented
+      summary: Remove an active user's role at once (admin); body {}
+      responses:
+        "200": { description: User, content: { application/json: { schema: { $ref: "#/components/schemas/User" } } } }
+        default: { $ref: "#/components/responses/Problem" }
+  /api/v1/users/{userId}/deployments/{deploymentId}:
+    parameters:
+      - { $ref: "#/components/parameters/UserId" }
+      - { name: deploymentId, in: path, required: true, schema: { $ref: "#/components/schemas/Identifier" } }
+    put:
+      x-badger-status: implemented
+      summary: Add an active user to a deployment (admin); body {}
+      responses:
+        "200": { description: User, content: { application/json: { schema: { $ref: "#/components/schemas/User" } } } }
+        default: { $ref: "#/components/responses/Problem" }
+    delete:
+      x-badger-status: implemented
+      summary: Remove a membership (admin); body {}
+      responses:
+        "200": { description: User, content: { application/json: { schema: { $ref: "#/components/schemas/User" } } } }
+        default: { $ref: "#/components/responses/Problem" }
+  /api/v1/users/{userId}/offboard:
+    parameters: [{ $ref: "#/components/parameters/UserId" }]
+    post:
+      x-badger-status: implemented
+      summary: Offboard (admin, not self); final. Clears role and memberships and drops pending requests by or about the user; body {}
+      responses:
+        "200": { description: User, content: { application/json: { schema: { $ref: "#/components/schemas/User" } } } }
+        default: { $ref: "#/components/responses/Problem" }
+  /api/v1/role-requests:
+    get:
+      x-badger-status: implemented
+      summary: The approver queue, pending requests only (admin, approver, auditor)
+      responses:
+        "200":
+          description: Pending requests
+          content:
+            application/json:
+              schema: { type: object, required: [items], properties: { items: { type: array, items: { $ref: "#/components/schemas/RoleRequest" } } } }
+        default: { $ref: "#/components/responses/Problem" }
+  /api/v1/users/{userId}/role-requests:
+    parameters: [{ $ref: "#/components/parameters/UserId" }]
+    post:
+      x-badger-status: implemented
+      summary: Request a role for an active user (admin); nothing changes until an approver decides
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [role]
+              properties:
+                role: { type: string, enum: [admin, approver, auditor] }
+      responses:
+        "201": { description: Request, content: { application/json: { schema: { $ref: "#/components/schemas/RoleRequest" } } } }
+        default: { $ref: "#/components/responses/Problem" }
+  /api/v1/role-requests/{requestId}/approve:
+    parameters: [{ $ref: "#/components/parameters/RequestId" }]
+    post:
+      x-badger-status: implemented
+      summary: Approve (approver who is neither the requester nor the user)
+      responses:
+        "200": { description: Request, content: { application/json: { schema: { $ref: "#/components/schemas/RoleRequest" } } } }
+        default: { $ref: "#/components/responses/Problem" }
+  /api/v1/role-requests/{requestId}/reject:
+    parameters: [{ $ref: "#/components/parameters/RequestId" }]
+    post:
+      x-badger-status: implemented
+      summary: Reject (same rule as approve)
+      responses:
+        "200": { description: Request, content: { application/json: { schema: { $ref: "#/components/schemas/RoleRequest" } } } }
+        default: { $ref: "#/components/responses/Problem" }
+  /api/v1/device/nonce:
+    get:
+      x-badger-status: spec
+      summary: One-use nonce for a device-key proof
+      security: []
+      responses:
+        "200":
+          description: Nonce, valid for 60 seconds
+          content:
+            application/json:
+              schema: { type: object, required: [nonce], properties: { nonce: { type: string } } }
+  /api/v1/device/profile:
+    post:
+      x-badger-status: spec
+      summary: A workstation pulls its signed profile, its deployment's activation record and any pending reset
+      description: >
+        The device proves possession of its cilock-enrolled device key (TPM or Secure Enclave
+        custody): proof is a compact ES256 JWS by that key over the nonce, the key thumbprint
+        and this portal's audience. Returns both documents exactly as signed for the device's
+        deployment. 403 when unknown or revoked. The portal never pushes.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [nonce, proof]
+              properties:
+                nonce: { type: string }
+                proof: { type: string }
+      responses:
+        "200":
+          description: The current pair
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [envelope, activation]
+                properties:
+                  envelope: { type: object, description: Profile DSSE envelope }
+                  activation: { type: object, description: Activation record DSSE envelope }
+                  reset: { type: object, description: "Pending device-bound high-water reset record (DSSE), present only when one awaits this device" }
+        default: { $ref: "#/components/responses/Problem" }
+components:
+  securitySchemes:
+    idpSession:
+      type: apiKey
+      in: header
+      name: x-broker-user-id
+      description: >
+        The person's IdP subject, set by the deployment's edge after IdP sign-in with an admin
+        group (with the group in its own header). Badger's implementation serves the API on its
+        admin listener, under /admin/portal, and refuses model-traffic credentials there.
+  parameters:
+    ProfileId:
+      name: profileId
+      in: path
+      required: true
+      schema: { $ref: "#/components/schemas/Identifier" }
+    UserId:
+      name: userId
+      in: path
+      required: true
+      schema: { $ref: "#/components/schemas/Digest" }
+    RequestId:
+      name: requestId
+      in: path
+      required: true
+      schema: { type: string, pattern: "^[0-9a-f]{32}$" }
+    SequencePath:
+      name: sequence
+      in: path
+      required: true
+      schema: { type: string, pattern: "^[1-9][0-9]{0,15}$" }
+  schemas:
+    User:
+      type: object
+      required: [id, kind, subject, role, status, createdAt, createdBy]
+      properties:
+        id: { $ref: "#/components/schemas/Digest" }
+        kind: { type: string, enum: [oidc] }
+        subject: { type: string }
+        role: { type: string, enum: ["", admin, approver, auditor] }
+        status: { type: string, enum: [pending, active, offboarded] }
+        createdAt: { type: string, format: date-time }
+        createdBy: { type: string }
+        deployments: { type: array, items: { $ref: "#/components/schemas/Identifier" } }
+    RoleRequest:
+      type: object
+      required: [id, kind, userId, role, requestedBy, requesterId, requestedAt, status]
+      properties:
+        id: { type: string }
+        kind: { type: string, enum: [activate, grant] }
+        userId: { $ref: "#/components/schemas/Digest" }
+        role: { type: string, enum: ["", admin, approver, auditor] }
+        requestedBy: { type: string }
+        requesterId: { $ref: "#/components/schemas/Digest" }
+        requestedAt: { type: string, format: date-time }
+        status: { type: string, enum: [pending, approved, rejected, dropped] }
+        decidedBy: { type: string }
+        decidedAt: { type: string, format: date-time }
+    Assignment:
+      type: object
+      required: [deploymentId, profileId, sequence, payloadSha256, assignedAt, assignedBy]
+      properties:
+        deploymentId: { $ref: "#/components/schemas/Identifier" }
+        profileId: { $ref: "#/components/schemas/Identifier" }
+        sequence: { $ref: "#/components/schemas/Sequence" }
+        payloadSha256: { $ref: "#/components/schemas/Digest" }
+        assignedAt: { type: string, format: date-time }
+        assignedBy: { type: string }
+    Identifier: { type: string, pattern: "^[a-zA-Z0-9][a-zA-Z0-9._-]{0,127}$" }
+    Instant: { type: string, pattern: "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$" }
+    Sequence: { type: integer, minimum: 1, maximum: 9007199254740991 }
+    Digest: { type: string, pattern: "^[0-9a-f]{64}$" }
+    Connector:
+      type: object
+      additionalProperties: false
+      required: [name, binarySha256, baseUrl, tokenPath, writes, classification, flags, permissions]
+      properties:
+        name: { type: string, enum: [jira, confluence, gitlab] }
+        binarySha256: { $ref: "#/components/schemas/Digest" }
+        baseUrl: { type: string, description: "https URL with a host; no credentials, query or fragment" }
+        tokenPath: { type: string, description: Absolute path }
+        caPath: { type: [string, "null"], description: "Absolute path, or null (also when left out)" }
+        writes: { type: boolean }
+        classification: { type: string, description: "The connector's marking; the gateway's must dominate it" }
+        notice: { type: string, pattern: "^[A-Za-z0-9 .,;:()'/-]{1,160}$" }
+        flags: { type: object, additionalProperties: { type: string }, description: "Only the flags the release lists for this connector" }
+        permissions: { type: object, additionalProperties: { type: string, enum: [allow, ask, deny] }, description: "Each key is the connector name, an underscore, then a tool name or *" }
+    Version:
+      type: object
+      required: [profileId, tenantId, deploymentId, sequence, notBefore, expiresAt, payloadSha256, envelopeSha256, signerKeyIds, createdAt, createdBy]
+      properties:
+        profileId: { $ref: "#/components/schemas/Identifier" }
+        tenantId: { $ref: "#/components/schemas/Identifier" }
+        deploymentId: { $ref: "#/components/schemas/Identifier" }
+        sequence: { $ref: "#/components/schemas/Sequence" }
+        notBefore: { $ref: "#/components/schemas/Instant" }
+        expiresAt: { $ref: "#/components/schemas/Instant" }
+        payloadSha256: { $ref: "#/components/schemas/Digest" }
+        envelopeSha256: { $ref: "#/components/schemas/Digest" }
+        signerKeyIds: { type: array, items: { $ref: "#/components/schemas/Digest" } }
+        createdAt: { type: string, format: date-time }
+        createdBy: { type: string, description: Authenticated principal (IdP subject) }
+    Problem:
+      type: object
+      description: RFC 9457 problem document; "error" repeats the stable code.
+      required: [type, title, status, error]
+      properties:
+        type: { type: string, example: "urn:badger:portal:forbidden" }
+        title: { type: string }
+        status: { type: integer }
+        detail: { type: string }
+        error: { type: string, enum: [unauthenticated, forbidden, cross-origin, invalid-request, invalid-profile, sequence-conflict, rollback, not-found, store, issue-failed, assign-failed, conflict, invalid-state, users-failed] }
+  responses:
+    Problem:
+      description: Error
+      content:
+        application/problem+json:
+          schema: { $ref: "#/components/schemas/Problem" }

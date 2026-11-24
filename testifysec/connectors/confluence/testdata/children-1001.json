@@ -1,0 +1,78 @@
+{
+ "results": [
+  {
+   "id": "1101",
+   "type": "page",
+   "status": "current",
+   "title": "Freeze Procedure",
+   "extensions": {
+    "position": "none"
+   },
+   "_links": {
+    "webui": "/display/ENG/Freeze+Procedure",
+    "edit": "/pages/resumedraft.action?draftId=1101",
+    "tinyui": "/x/AbCd",
+    "self": "https://wiki.example.invalid/rest/api/content/1101"
+   },
+   "_expandable": {
+    "container": "/rest/api/space/ENG",
+    "operations": "",
+    "children": "/rest/api/content/1101/child",
+    "restrictions": "/rest/api/content/1101/restriction/byOperation",
+    "descendants": "/rest/api/content/1101/descendant"
+   },
+   "metadata": {
+    "labels": {
+     "results": [],
+     "start": 0,
+     "limit": 200,
+     "size": 0,
+     "_links": {
+      "self": "https://wiki.example.invalid/rest/api/content/1101/label"
+     }
+    }
+   }
+  },
+  {
+   "id": "1102",
+   "type": "page",
+   "status": "current",
+   "title": "Tagging",
+   "extensions": {
+    "position": "none"
+   },
+   "_links": {
+    "webui": "/display/ENG/Tagging",
+    "edit": "/pages/resumedraft.action?draftId=1102",
+    "tinyui": "/x/AbCd",
+    "self": "https://wiki.example.invalid/rest/api/content/1102"
+   },
+   "_expandable": {
+    "container": "/rest/api/space/ENG",
+    "operations": "",
+    "children": "/rest/api/content/1102/child",
+    "restrictions": "/rest/api/content/1102/restriction/byOperation",
+    "descendants": "/rest/api/content/1102/descendant"
+   },
+   "metadata": {
+    "labels": {
+     "results": [],
+     "start": 0,
+     "limit": 200,
+     "size": 0,
+     "_links": {
+      "self": "https://wiki.example.invalid/rest/api/content/1102/label"
+     }
+    }
+   }
+  }
+ ],
+ "start": 0,
+ "limit": 25,
+ "size": 2,
+ "_links": {
+  "base": "https://wiki.example.invalid",
+  "context": "",
+  "self": "https://wiki.example.invalid/rest/api/content/search"
+ }
+}

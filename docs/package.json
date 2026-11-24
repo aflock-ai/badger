@@ -1,0 +1,13 @@
+{
+  "name": "@testifysec/docs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "bun tools/generate.ts --check && bun test ./tools"
+  },
+  "devDependencies": {
+    "mdast-util-from-markdown": "2.0.3",
+    "typescript": "catalog:"
+  }
+}

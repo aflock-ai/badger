@@ -1,0 +1,14 @@
+{
+ "schema": "badger.marking-scheme/v1",
+ "name": "healthcare",
+ "version": 1,
+ "note": "Example custom table for a healthcare deployment: the corporate levels with PHI and PII, and substance-use-disorder records held apart above them. Test data and a documentation example; it makes no deployment compliant with anything.",
+ "levels": [{"name": "PUBLIC"}, {"name": "INTERNAL"}, {"name": "CONFIDENTIAL"}, {"name": "RESTRICTED"}],
+ "groups": [
+  {"name": "handling", "kind": "require", "position": 1, "minLevel": "CONFIDENTIAL", "tokens": [
+   {"token": "PHI", "reason": "protected health information under the HIPAA Privacy and Security Rules (45 CFR Parts 160 and 164)"},
+   {"token": "PII", "reason": "personal data under privacy laws"},
+   {"token": "SUD", "minLevel": "RESTRICTED", "reason": "substance use disorder treatment records under 42 CFR Part 2"}
+  ]}
+ ]
+}

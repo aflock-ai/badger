@@ -1,0 +1,16 @@
+{
+ "note": "Shapes only the built-in presets may use (release lists, sourced groups, portion marks, absorption), loaded in preset mode: each must still be refused. Deployment files never reach these checks: the loader refuses the shapes first (refusals.json).",
+ "refusals": {
+  "release-no-portion": "names its no-release token by portion",
+  "portion-twice": "portion \"X\" stands for both \"A\" and \"B\"",
+  "release-no-home": "needs a home country",
+  "no-release-two-owners": "the no-release token \"HOME ONLY\" is in 2 groups",
+  "release-unknown-no-release": "no require token has portion \"HO\"",
+  "tetragraph-unknown-member": "member \"ZZZ\" is not a known country",
+  "absorbed-on-sourced": "only a require group takes",
+  "sourced-without-release": "at most one release group",
+  "release-line-collision": "groups tags lines and other accept the same words (\"REL TO \", \"REL TO AAA\")",
+  "release-display-same": "the release and display lines must differ, and neither may begin the other",
+  "release-display-prefix": "the release and display lines must differ, and neither may begin the other"
+ }
+}

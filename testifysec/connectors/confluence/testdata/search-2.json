@@ -1,0 +1,65 @@
+{
+ "results": [
+  {
+   "id": "1003",
+   "type": "blogpost",
+   "status": "current",
+   "title": "Release Notes 1.4",
+   "space": {
+    "id": 98305,
+    "key": "ENG",
+    "name": "Engineering",
+    "type": "global",
+    "status": "current",
+    "_links": {
+     "webui": "/display/ENG",
+     "self": "https://wiki.example.invalid/rest/api/space/ENG"
+    },
+    "_expandable": {
+     "metadata": "",
+     "icon": "",
+     "description": "",
+     "homepage": "/rest/api/content/98306"
+    }
+   },
+   "extensions": {
+    "position": "none"
+   },
+   "_links": {
+    "webui": "/display/ENG/Release+Notes+1.4",
+    "edit": "/pages/resumedraft.action?draftId=1003",
+    "tinyui": "/x/AbCd",
+    "self": "https://wiki.example.invalid/rest/api/content/1003"
+   },
+   "_expandable": {
+    "container": "/rest/api/space/ENG",
+    "operations": "",
+    "children": "/rest/api/content/1003/child",
+    "restrictions": "/rest/api/content/1003/restriction/byOperation",
+    "descendants": "/rest/api/content/1003/descendant"
+   },
+   "metadata": {
+    "labels": {
+     "results": [],
+     "start": 0,
+     "limit": 200,
+     "size": 0,
+     "_links": {
+      "self": "https://wiki.example.invalid/rest/api/content/1003/label"
+     }
+    }
+   }
+  }
+ ],
+ "start": 2,
+ "limit": 2,
+ "size": 1,
+ "_links": {
+  "base": "https://wiki.example.invalid",
+  "context": "",
+  "self": "https://wiki.example.invalid/rest/api/content/search"
+ },
+ "totalSize": 3,
+ "cqlQuery": "text ~ \"release\"",
+ "searchDuration": 9
+}

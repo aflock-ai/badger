@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Model admin</title>
+<meta name="badger-user" content="<!--USER-->">
+<link rel="stylesheet" href="console.css">
+<script src="console.js" defer></script>
+</head><body><!--BANNER--><!--HEADER-->
+<div class="tabs" role="tablist" aria-label="Admin sections">
+<button role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true">Overview</button>
+<button role="tab" id="tab-usage" aria-controls="panel-usage" aria-selected="false" tabindex="-1">Usage</button>
+<button role="tab" id="tab-limits" aria-controls="panel-limits" aria-selected="false" tabindex="-1">Limits</button>
+<button role="tab" id="tab-workloads" aria-controls="panel-workloads" aria-selected="false" tabindex="-1">Workloads</button>
+</div>
+<main>
+<p id="status" class="status" role="status" aria-live="polite"></p>
+
+<section id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<div class="callout" id="ov-uncapped" role="status" hidden><strong>Spending is not capped. Set a default limit.</strong> No default monthly limit is set, so a person or workload without a limit of their own can spend without bound. <button class="btn-primary">Set a default limit</button></div>
+<div class="tiles" id="ov-tiles"></div>
+<div class="cols">
+<div class="card"><h2 id="ov-chart-title">Daily spend, last 30 days</h2><div id="ov-chart"></div>
+<h2 class="gap">Top users this month</h2><div class="wrap"><table id="ov-top"></table></div></div>
+<div class="card"><h2>Needs attention</h2><ul id="ov-alerts" class="alerts"></ul>
+<h2 class="gap">Spend by model this month</h2><div class="wrap"><table id="ov-models"></table></div></div>
+</div>
+</section>
+
+<section id="panel-usage" role="tabpanel" aria-labelledby="tab-usage" hidden>
+<div class="card">
+<div class="bar">
+<label>Period <select id="us-range"><option value="7">Last 7 days</option><option value="30">Last 30 days</option><option value="month">This month</option><option value="92">Last 92 days</option><option value="custom">Dates…</option></select></label>
+<span id="us-dates" hidden><label>From <input type="date" id="us-from"></label> <label>to <input type="date" id="us-to"></label></span>
+<label>Who <select id="us-kind"><option value="">People and workloads</option><option value="person">People only</option><option value="pipeline">Workloads only</option></select></label>
+<label>Model <select id="us-model"><option value="">All models</option></select></label>
+<label>Search <input type="search" id="us-search" placeholder="name, owner or trigger"></label>
+<span class="spacer"></span>
+<button id="us-csv">Download CSV</button><button id="us-csv-days">Daily CSV</button>
+</div>
+<div class="wrap"><table id="us-table"></table></div>
+<p class="note" id="us-foot">Cost is what each call was charged at its model's configured price when it ran. A model with no price shows a dash, not zero. One view covers at most 92 days.</p>
+</div>
+</section>
+
+
+<section id="panel-workloads" role="tabpanel" aria-labelledby="tab-workloads" hidden>
+<div class="bar"><p class="note grow">A workload is a CI pipeline that calls the models with its own identity (its CI job token), never a person's account. Each one answers to an owner; a workload with no owner is refused.</p>
+<button class="btn-primary" id="wl-new">Add workload</button></div>
+<div class="card"><div class="wrap"><table id="wl-table"></table></div></div>
+<div class="card" id="wl-proposals-card" hidden><h2>Waiting for a second admin</h2><div class="wrap"><table id="wl-proposals"></table></div></div>
+</section>
+
+<section id="panel-limits" role="tabpanel" aria-labelledby="tab-limits" hidden>
+<div class="callout" id="lt-uncapped" role="status" hidden><strong>Spending is not capped. Set a default limit.</strong> No default monthly limit is set, so a person or workload without a limit of their own can spend without bound. <button class="btn-primary">Set a default limit</button></div>
+
+<div class="card">
+<h2>Effective limits</h2>
+<form class="bar" id="lk-form"><label>Person or workload <input id="lk-who" list="lk-list" size="34" autocomplete="off" placeholder="name@example.com or ci:group/project"></label><datalist id="lk-list"></datalist>
+<button id="lk-go">Look up</button></form>
+<p class="note" id="lk-note">What applies to one person or workload, field by field: their own value, else the default for everyone, else the agent's built-in value.</p>
+<div class="wrap"><table id="lk-table"></table></div>
+</div>
+
+<div class="bar"><div class="grow"><h2 class="section">Spend and output: enforced by the broker on every call</h2>
+<p class="note">For people and workloads. Each person and workload has their own allowance; their own limit wins over the default. Days reset at 00:00 UTC; months at 00:00 UTC on the 1st. From 80% of a monthly or daily limit, the broker adds a warning to each answer (header X-Broker-Quota-Warning; workspaces do not show it, so watch Needs attention on Overview). At 100%, new requests are refused (HTTP 429): a pipeline is told which limit it reached and when it resets; a workspace user is told to ask an administrator. Every change is kept in the audit log with who made it and why.</p></div>
+<button class="btn-primary" id="qt-new">Set a limit for…</button></div>
+<div class="card"><div class="wrap"><table id="qt-table"></table></div></div>
+
+<div class="bar"><div class="grow"><h2 class="section">Agent behavior: applied by the managed agent when a session starts</h2>
+<p class="note">For people only. Workloads call the models directly, with no managed agent, so these do not apply to them. The agent reads its values when a session starts. A change applies to new sessions only; a running session keeps the values it started with. These guard against runaway sessions; spend is limited above.</p></div>
+<button class="btn-primary" id="lm-new">Set agent limits for…</button></div>
+<div class="card"><div class="wrap"><table id="lm-table"></table></div><p class="note" id="lm-tech"></p></div>
+</section>
+</main>
+
+<dialog id="qd" aria-labelledby="qd-title"><form method="dialog" id="qd-form">
+<h2 id="qd-title">Set a limit</h2>
+<p class="sentence">Limit
+<select id="qd-scope" aria-label="Applies to"><option value="person">a person</option><option value="workload">a workload</option><option value="default">everyone (default)</option></select>
+<input id="qd-who" list="qd-people" aria-label="Who" size="28" autocomplete="off"><select id="qd-wl" aria-label="Workload" hidden></select><datalist id="qd-people"></datalist>
+to <input id="qd-amount" type="number" min="0" step="0.01" aria-label="Amount" aria-describedby="qd-how" size="9">
+<select id="qd-period" aria-label="Unit"><option value="monthly_usd">US dollars per month</option><option value="daily_usd">US dollars per day</option><option value="call_usd">US dollars per model call</option><option value="output">output tokens per model call</option></select>.</p>
+<p class="note" id="qd-how"></p>
+<p class="note">Leave the amount empty to remove this limit.</p>
+<div class="prices" id="qd-prices"></div>
+<p class="preview" id="qd-preview" aria-live="polite"></p>
+<p class="warn" id="qd-self" hidden>This is your own limit, or a workload you own. The change is flagged in the audit log.</p>
+<label for="qd-reason">Reason for the change (kept in the audit log)</label><input id="qd-reason" required maxlength="900" class="full">
+<p class="err" id="qd-msg" role="alert"></p>
+<div class="actions"><button type="button" id="qd-cancel">Cancel</button><button class="btn-primary" id="qd-save" value="save">Save limit</button></div>
+</form></dialog>
+
+<dialog id="wd" aria-labelledby="wd-title"><form method="dialog" id="wd-form">
+<h2 id="wd-title">Workload</h2>
+<div class="grid2">
+<div class="field"><label for="wd-id">Name</label><input id="wd-id" required pattern="[a-z0-9][a-z0-9\-]{0,62}" placeholder="release-notes-bot"><span class="help">Lower case letters, digits and dashes.</span></div>
+<div class="field" id="wd-issuer-field" hidden><label for="wd-issuer">CI server</label><select id="wd-issuer"></select></div>
+<div class="field"><label for="wd-project">Project path</label><input id="wd-project" required placeholder="group/project"></div>
+<div class="field"><label for="wd-ref">Branch</label><input id="wd-ref" required placeholder="main"></div>
+</div>
+<fieldset><legend>Which branch may run it</legend>
+<label class="check"><input type="radio" name="wd-kind" id="wd-kind-protected" value="protected_branch" checked> Protected branch only</label>
+<label class="check"><input type="radio" name="wd-kind" id="wd-kind-named" value="named_branch"> This branch even if unprotected (needs an expiry<span id="wd-two"></span>)</label>
+</fieldset>
+<div class="grid2">
+<fieldset><legend>Started by</legend><div id="wd-sources"></div></fieldset>
+<fieldset><legend>Models</legend><div id="wd-models"></div></fieldset>
+</div>
+<div class="grid2">
+<div class="field"><label for="wd-users">Only when started by (CI user names, comma separated; empty for anyone)</label><input id="wd-users"></div>
+<div class="field"><label for="wd-expires">Expires (UTC date; empty for never)</label><input id="wd-expires" type="date"></div>
+<div class="field"><label for="wd-owner">Owner (accountable person)</label><select id="wd-owner" required></select></div>
+<div class="field"><label for="wd-quota">Monthly limit, US dollars (empty for the default)</label><input id="wd-quota" type="number" min="0" step="0.01"></div>
+</div>
+<label class="check"><input type="checkbox" id="wd-enabled" checked> Enabled</label>
+<label for="wd-reason">Reason for the change (kept in the audit log)</label><input id="wd-reason" required maxlength="900" class="full">
+<p class="err" id="wd-msg" role="alert"></p>
+<div class="actions"><button type="button" id="wd-cancel">Cancel</button><button class="btn-primary" id="wd-save" value="save">Save workload</button></div>
+</form></dialog>
+
+<dialog id="ld" aria-labelledby="ld-title"><form method="dialog" id="ld-form">
+<h2 id="ld-title">Agent limits</h2>
+<div class="field" id="ld-who-field"><label for="ld-who">Person</label><input id="ld-who" list="ld-people" autocomplete="off" placeholder="name@example.com"><datalist id="ld-people"></datalist><span class="help">People only: a workload has no managed agent.</span></div>
+<div class="grid2">
+<div class="field"><label for="ld-steps">Max agent steps per request</label><input id="ld-steps" type="number" min="1" step="1" aria-describedby="ld-steps-help"><span class="help" id="ld-steps-help">Model calls the agent makes for one message before it stops and asks to continue. At least 1.</span></div>
+<div class="field"><label for="ld-context">Context window (tokens)</label><input id="ld-context" type="number" min="1" step="1" aria-describedby="ld-context-help"><span class="help" id="ld-context-help"></span></div>
+<div class="field"><label for="ld-timeout">Timeout per model call (seconds)</label><input id="ld-timeout" type="number" min="1" step="1" aria-describedby="ld-timeout-help"><span class="help" id="ld-timeout-help"></span></div>
+</div>
+<p class="note">Applies to new sessions only.</p>
+<p class="note" id="ld-tech"></p>
+<p class="warn" id="ld-self" hidden>These are your own limits, or a workload you own. The change is flagged in the audit log.</p>
+<label for="ld-reason">Reason for the change (kept in the audit log)</label><input id="ld-reason" required maxlength="900" class="full">
+<p class="err" id="ld-msg" role="alert"></p>
+<div class="actions"><button type="button" id="ld-cancel">Cancel</button><button class="btn-primary" id="ld-save" value="save">Save limits</button></div>
+</form></dialog>
+<!--BANNER--></body></html>

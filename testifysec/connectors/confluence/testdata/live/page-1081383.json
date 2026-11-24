@@ -1,0 +1,141 @@
+{
+ "id": "1081383",
+ "type": "page",
+ "status": "current",
+ "title": "lvb banner heading",
+ "space": {
+  "id": 1114113,
+  "key": "ENG",
+  "name": "Engineering",
+  "status": "current",
+  "type": "global",
+  "creator": {
+   "type": "known",
+   "username": "admin",
+   "userKey": "ff808081908dfda301908dfe26760000",
+   "displayName": "admin",
+   "_links": {
+    "self": "http://service.example.invalid/confluence/rest/api/user?key=ff808081908dfda301908dfe26760000"
+   },
+   "_expandable": {
+    "profilePicture": "",
+    "status": ""
+   }
+  },
+  "creationDate": "2026-10-22T20:52:35.690+02:00",
+  "lastModifier": {
+   "type": "known",
+   "username": "admin",
+   "userKey": "ff808081908dfda301908dfe26760000",
+   "displayName": "admin",
+   "_links": {
+    "self": "http://service.example.invalid/confluence/rest/api/user?key=ff808081908dfda301908dfe26760000"
+   },
+   "_expandable": {
+    "profilePicture": "",
+    "status": ""
+   }
+  },
+  "lastModificationDate": "2026-10-22T20:52:35.690+02:00",
+  "_links": {
+   "webui": "/spaces/ENG/overview",
+   "self": "http://service.example.invalid/confluence/rest/api/space/ENG"
+  },
+  "_expandable": {
+   "metadata": "",
+   "permissions": "",
+   "icon": "",
+   "description": "",
+   "retentionPolicy": "",
+   "homepage": "/rest/api/content/1081346"
+  }
+ },
+ "version": {
+  "by": {
+   "type": "known",
+   "username": "admin",
+   "userKey": "ff808081908dfda301908dfe26760000",
+   "profilePicture": {
+    "path": "/confluence/images/icons/profilepics/default.svg",
+    "width": 48,
+    "height": 48,
+    "isDefault": true
+   },
+   "displayName": "admin",
+   "_links": {
+    "self": "http://service.example.invalid/confluence/rest/api/user?key=ff808081908dfda301908dfe26760000"
+   },
+   "_expandable": {
+    "status": ""
+   }
+  },
+  "when": "2026-10-22T20:52:44.165+02:00",
+  "message": "",
+  "number": 1,
+  "minorEdit": false,
+  "hidden": false,
+  "_links": {
+   "self": "http://service.example.invalid/confluence/rest/experimental/content/1081383/version/1"
+  },
+  "_expandable": {
+   "content": "/rest/api/content/1081383"
+  }
+ },
+ "ancestors": [],
+ "position": -1,
+ "body": {
+  "storage": {
+   "value": "<h1>SECRET</h1><p>Body.</p>",
+   "representation": "storage",
+   "_expandable": {
+    "content": "/rest/api/content/1081383"
+   }
+  },
+  "_expandable": {
+   "editor": "",
+   "view": "",
+   "export_view": "",
+   "styled_view": "",
+   "anonymous_export_view": ""
+  }
+ },
+ "metadata": {
+  "labels": {
+   "results": [],
+   "start": 0,
+   "limit": 200,
+   "size": 0,
+   "_links": {
+    "self": "http://service.example.invalid/confluence/rest/api/content/1081383/label"
+   }
+  },
+  "_expandable": {
+   "currentuser": "",
+   "reactionsCount": "",
+   "properties": "",
+   "frontend": "",
+   "editorHtml": ""
+  }
+ },
+ "extensions": {
+  "position": "none"
+ },
+ "_links": {
+  "webui": "/spaces/ENG/pages/1081383/lvb+banner+heading",
+  "edit": "/pages/resumedraft.action?draftId=1081383",
+  "tinyui": "/x/J4AQ",
+  "collection": "/rest/api/content",
+  "base": "http://service.example.invalid/confluence",
+  "context": "/confluence",
+  "self": "http://service.example.invalid/confluence/rest/api/content/1081383"
+ },
+ "_expandable": {
+  "container": "/rest/api/space/ENG",
+  "operations": "",
+  "children": "/rest/api/content/1081383/child",
+  "restrictions": "/rest/api/content/1081383/restriction/byOperation",
+  "history": "/rest/api/content/1081383/history",
+  "descendants": "/rest/api/content/1081383/descendant",
+  "relevantViewRestrictions": "/rest/api/content/1081383/restriction/relevantViewRestrictions"
+ }
+}

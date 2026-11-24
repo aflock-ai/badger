@@ -1,0 +1,78 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/api/v4/projects/1/merge_requests/1/diffs",
+  "query": {
+   "page": [
+    "1"
+   ],
+   "per_page": [
+    "20"
+   ]
+  },
+  "body": null
+ },
+ "status": 200,
+ "headers": {
+  "Content-Type": "application/json",
+  "Link": "<http://service.example.invalid/api/v4/projects/1/merge_requests/1/diffs?id=1&merge_request_iid=1&page=1&per_page=20&unidiff=false>; rel=\"first\", <http://service.example.invalid/api/v4/projects/1/merge_requests/1/diffs?id=1&merge_request_iid=1&page=1&per_page=20&unidiff=false>; rel=\"last\"",
+  "X-Page": "1",
+  "X-Per-Page": "20",
+  "X-Total": "4",
+  "X-Total-Pages": "1"
+ },
+ "body": [
+  {
+   "diff": "@@ -1 +0,0 @@\n-plus in name\n",
+   "collapsed": false,
+   "too_large": false,
+   "new_path": "docs/plus+sign.txt",
+   "old_path": "docs/plus+sign.txt",
+   "a_mode": "100644",
+   "b_mode": "0",
+   "new_file": false,
+   "renamed_file": false,
+   "deleted_file": true,
+   "generated_file": false
+  },
+  {
+   "diff": "",
+   "collapsed": false,
+   "too_large": false,
+   "new_path": "docs/renamed.txt",
+   "old_path": "docs/a..b.txt",
+   "a_mode": "100644",
+   "b_mode": "100644",
+   "new_file": false,
+   "renamed_file": true,
+   "deleted_file": false,
+   "generated_file": false
+  },
+  {
+   "diff": "@@ -1,6 +1,6 @@\n package app\n \n // (C) caveat-free portion\n-func A() int { return 1 }\n-func B() int { return 2 }\n+func A() int { return 10 }\n func C() int { return 3 }\n+func D() int { return 4 }\n",
+   "collapsed": false,
+   "too_large": false,
+   "new_path": "src/app.go",
+   "old_path": "src/app.go",
+   "a_mode": "100644",
+   "b_mode": "100644",
+   "new_file": false,
+   "renamed_file": false,
+   "deleted_file": false,
+   "generated_file": false
+  },
+  {
+   "diff": "@@ -0,0 +1,3 @@\n+package app\n+\n+var New = true\n",
+   "collapsed": false,
+   "too_large": false,
+   "new_path": "src/new.go",
+   "old_path": "src/new.go",
+   "a_mode": "0",
+   "b_mode": "100644",
+   "new_file": true,
+   "renamed_file": false,
+   "deleted_file": false,
+   "generated_file": false
+  }
+ ]
+}

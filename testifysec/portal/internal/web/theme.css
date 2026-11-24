@@ -1,0 +1,228 @@
+/* Badger theme v1. One token set, light and dark. Pure CSS, no fonts, no network.
+   Light by default; dark follows prefers-color-scheme. No page carries a mode switch; an
+   embedding app may pin a mode with <html data-theme="light|dark">. The theme never styles a classification/marking banner:
+   a banner keeps its own official colors in both modes. Element styles sit inside :where(),
+   so any page rule wins over them. */
+
+:root {
+  color-scheme: light;
+  --c-bg: #f6f7f9;
+  --c-surface: #ffffff;
+  --c-surface-2: #eef1f4;
+  --c-text: #1b1f24;
+  --c-text-muted: #535c67;
+  --c-border: #d5dae1;
+  --c-control: #7d8794;
+  --c-accent: #1d5fc4;
+  --c-accent-hover: #174d9f;
+  --c-on-accent: #ffffff;
+  --c-focus: #1d5fc4;
+  --c-danger: #b3261e;
+  --c-danger-bg: #fdecea;
+  --c-warning: #8a5300;
+  --c-warning-bg: #fdf3e2;
+  --c-success: #1b7a3d;
+  --c-success-bg: #e8f5ec;
+  --c-info-bg: #e9f0fb;
+  --shadow-1: 0 1px 2px rgb(16 24 40 / 6%), 0 1px 3px rgb(16 24 40 / 8%);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --fs-1: 12px;
+  --fs-2: 14px;
+  --fs-3: 16px;
+  --fs-4: 18px;
+  --fs-5: 22px;
+  --fs-6: 28px;
+  --lh: 1.5;
+
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+
+  --r-1: 4px;
+  --r-2: 6px;
+  --r-3: 10px;
+  --page-max: 1100px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --c-bg: #111418;
+    --c-surface: #181c21;
+    --c-surface-2: #21262d;
+    --c-text: #e6e9ed;
+    --c-text-muted: #a2abb6;
+    --c-border: #2f363f;
+    --c-control: #6b7684;
+    --c-accent: #7eaaf7;
+    --c-accent-hover: #a3c3fa;
+    --c-on-accent: #0d1420;
+    --c-focus: #7eaaf7;
+    --c-danger: #ff8f85;
+    --c-danger-bg: #3a1d1b;
+    --c-warning: #f0b450;
+    --c-warning-bg: #352a14;
+    --c-success: #63cb8c;
+    --c-success-bg: #16301f;
+    --c-info-bg: #182538;
+    --shadow-1: 0 1px 2px rgb(0 0 0 / 40%);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --c-bg: #111418;
+  --c-surface: #181c21;
+  --c-surface-2: #21262d;
+  --c-text: #e6e9ed;
+  --c-text-muted: #a2abb6;
+  --c-border: #2f363f;
+  --c-control: #6b7684;
+  --c-accent: #7eaaf7;
+  --c-accent-hover: #a3c3fa;
+  --c-on-accent: #0d1420;
+  --c-focus: #7eaaf7;
+  --c-danger: #ff8f85;
+  --c-danger-bg: #3a1d1b;
+  --c-warning: #f0b450;
+  --c-warning-bg: #352a14;
+  --c-success: #63cb8c;
+  --c-success-bg: #16301f;
+  --c-info-bg: #182538;
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 40%);
+}
+
+/* Elements */
+:where(*, *::before, *::after) { box-sizing: border-box; }
+:where(body) {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font: var(--fs-2)/var(--lh) var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+}
+:where(h1, h2, h3) { margin: 0 0 var(--sp-3); line-height: 1.25; font-weight: 650; }
+:where(h1) { font-size: var(--fs-5); }
+:where(h2) { font-size: var(--fs-4); }
+:where(h3) { font-size: var(--fs-3); }
+:where(p) { margin: 0 0 var(--sp-3); }
+:where(a) { color: var(--c-accent); text-underline-offset: 2px; }
+:where(a:hover) { color: var(--c-accent-hover); }
+:where(code, pre, kbd) { font-family: var(--font-mono); font-size: 0.92em; }
+:where(code) { background: var(--c-surface-2); border-radius: var(--r-1); padding: 0 var(--sp-1); overflow-wrap: anywhere; }
+:where(pre) { background: var(--c-surface-2); border: 1px solid var(--c-border); border-radius: var(--r-2); padding: var(--sp-3); white-space: pre-wrap; overflow-wrap: anywhere; }
+:where(pre code) { background: none; padding: 0; }
+:where(hr) { border: 0; border-top: 1px solid var(--c-border); margin: var(--sp-5) 0; }
+
+:where(table) { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+:where(th, td) { padding: var(--sp-2) var(--sp-3); border-bottom: 1px solid var(--c-border); text-align: left; vertical-align: top; }
+:where(th) { color: var(--c-text-muted); font-size: var(--fs-1); font-weight: 600; text-transform: none; white-space: nowrap; }
+:where(tbody tr:hover, tr:hover > td) { background: var(--c-surface-2); }
+:where(caption) { text-align: left; color: var(--c-text-muted); padding: var(--sp-3) 0; }
+
+:where(input, select, textarea, button) { font: inherit; color: inherit; }
+:where(input:not([type=checkbox], [type=radio]), select, textarea) {
+  background: var(--c-surface);
+  color: var(--c-text);
+  border: 1px solid var(--c-control);
+  border-radius: var(--r-2);
+  padding: var(--sp-1) var(--sp-3);
+  min-height: 32px;
+}
+:where(textarea) { padding: var(--sp-2) var(--sp-3); }
+:where(input::placeholder, textarea::placeholder) { color: var(--c-text-muted); opacity: 1; }
+:where(button, .btn) {
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  min-height: 32px; padding: var(--sp-1) var(--sp-4);
+  background: var(--c-surface); color: var(--c-text);
+  border: 1px solid var(--c-control); border-radius: var(--r-2);
+  cursor: pointer; text-decoration: none; font-weight: 500;
+}
+:where(button:hover, .btn:hover) { background: var(--c-surface-2); color: var(--c-text); }
+:where(button:disabled) { opacity: 0.55; cursor: not-allowed; }
+:where(.btn-primary, button[type=submit]) { background: var(--c-accent); color: var(--c-on-accent); border-color: var(--c-accent); }
+:where(.btn-primary:hover, button[type=submit]:hover) { background: var(--c-accent-hover); border-color: var(--c-accent-hover); color: var(--c-on-accent); }
+
+/* Forms. A field is .field > label + control + optional .help / .field-error. An invalid control
+   carries aria-invalid="true" and aria-describedby pointing at its .field-error, so the error
+   works without script; the server renders both. */
+:where(label) { font-weight: 600; }
+:where(fieldset) { border: 1px solid var(--c-border); border-radius: var(--r-3); padding: var(--sp-4); margin: 0 0 var(--sp-4); }
+:where(legend) { font-weight: 650; padding: 0 var(--sp-1); }
+:where(input[type=checkbox], input[type=radio]) { accent-color: var(--c-accent); width: 16px; height: 16px; margin: 0; }
+.form { display: grid; gap: var(--sp-4); max-width: 640px; }
+.form fieldset { margin: 0; display: grid; gap: var(--sp-2); }
+.field { display: grid; gap: var(--sp-1); }
+.field > label { font-size: var(--fs-2); }
+.field .help { color: var(--c-text-muted); font-size: var(--fs-1); }
+.field .required::after { content: " *"; color: var(--c-danger); }
+.check { display: flex; align-items: center; gap: var(--sp-2); font-weight: 400; }
+.field-error { display: flex; gap: var(--sp-1); color: var(--c-danger); font-size: var(--fs-1); font-weight: 600; }
+.field-error::before { content: "!"; display: inline-grid; place-items: center; width: 16px; height: 16px; border-radius: 50%; background: var(--c-danger); color: var(--c-surface); font-size: 11px; line-height: 1; flex: none; margin-top: 1px; }
+:where(input, select, textarea)[aria-invalid="true"] { border-color: var(--c-danger); box-shadow: 0 0 0 1px var(--c-danger); }
+.actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; }
+:where(.btn-danger) { background: var(--c-surface); color: var(--c-danger); border-color: var(--c-danger); }
+:where(.btn-danger:hover) { background: var(--c-danger-bg); color: var(--c-danger); }
+:where(.btn-link) { background: none; border-color: transparent; color: var(--c-accent); padding-left: var(--sp-2); padding-right: var(--sp-2); }
+:where(.btn-link:hover) { background: var(--c-surface-2); color: var(--c-accent-hover); }
+:where(input:disabled, select:disabled, textarea:disabled) { background: var(--c-surface-2); color: var(--c-text-muted); cursor: not-allowed; }
+
+:where(:focus-visible) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+:where(input, select, textarea):focus-visible { outline-offset: 0; border-color: var(--c-focus); }
+
+/* Layout */
+.page { max-width: var(--page-max); margin: 0 auto; padding: var(--sp-5) var(--sp-4) var(--sp-7); }
+.topbar {
+  display: flex; align-items: center; gap: var(--sp-3); flex-wrap: wrap;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--c-surface); border-bottom: 1px solid var(--c-border);
+}
+.topbar .brand { font-weight: 650; font-size: var(--fs-3); color: var(--c-text); text-decoration: none; }
+.topbar .spacer { flex: 1; }
+.topbar .who { color: var(--c-text-muted); font-size: var(--fs-1); }
+.topbar nav { display: flex; gap: var(--sp-1); }
+.topbar nav a { color: var(--c-text-muted); text-decoration: none; padding: var(--sp-1) var(--sp-2); border-radius: var(--r-1); }
+.topbar nav a:hover { color: var(--c-text); background: var(--c-surface-2); }
+.topbar nav a[aria-current="page"] { color: var(--c-text); font-weight: 600; }
+.stack > * + * { margin-top: var(--sp-4); }
+.row { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; }
+
+/* Components */
+.card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-3); padding: var(--sp-4); box-shadow: var(--shadow-1); }
+.card > :last-child { margin-bottom: 0; }
+.card > table { margin: 0 calc(-1 * var(--sp-4)); width: calc(100% + 2 * var(--sp-4)); }
+.card > table th:first-child, .card > table td:first-child { padding-left: var(--sp-4); }
+.card > table th:last-child, .card > table td:last-child { padding-right: var(--sp-4); }
+.card > table tr:last-child td { border-bottom: 0; }
+.card > table:only-child { margin-top: calc(-1 * var(--sp-2)); margin-bottom: calc(-1 * var(--sp-3)); }
+.table-wrap { overflow-x: auto; }
+.muted { color: var(--c-text-muted); }
+.small { font-size: var(--fs-1); }
+.mono { font-family: var(--font-mono); }
+.nowrap { white-space: nowrap; }
+.eyebrow { color: var(--c-text-muted); font-size: var(--fs-1); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: var(--sp-1); }
+
+.badge { display: inline-block; padding: 0 var(--sp-2); border: 1px solid var(--c-border); border-radius: 999px; font-size: var(--fs-1); line-height: 20px; color: var(--c-text-muted); background: var(--c-surface-2); white-space: nowrap; }
+.badge.is-ok { color: var(--c-success); background: var(--c-success-bg); border-color: transparent; }
+.badge.is-warning { color: var(--c-warning); background: var(--c-warning-bg); border-color: transparent; }
+.badge.is-danger { color: var(--c-danger); background: var(--c-danger-bg); border-color: transparent; }
+
+.notice { padding: var(--sp-3) var(--sp-4); border-radius: var(--r-2); border: 1px solid var(--c-border); border-left-width: 4px; background: var(--c-info-bg); color: var(--c-text); }
+.notice.is-ok { background: var(--c-success-bg); border-left-color: var(--c-success); }
+.notice.is-warning { background: var(--c-warning-bg); border-left-color: var(--c-warning); }
+.notice.is-danger { background: var(--c-danger-bg); border-left-color: var(--c-danger); }
+.notice.is-info { border-left-color: var(--c-accent); }
+
+/* Centered message pages: sign-in, signed out, 403, quota. */
+.center { min-height: 100vh; display: grid; place-items: center; padding: var(--sp-5) var(--sp-4); }
+.center > .card { width: 100%; max-width: 480px; padding: var(--sp-6); }
+.center .code { font-family: var(--font-mono); color: var(--c-text-muted); font-size: var(--fs-1); margin: var(--sp-4) 0 0; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+@media print { :root { color-scheme: light; } .topbar { display: none; } }

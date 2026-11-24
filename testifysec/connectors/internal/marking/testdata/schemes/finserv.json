@@ -1,0 +1,16 @@
+{
+ "schema": "badger.marking-scheme/v1",
+ "name": "finserv",
+ "version": 1,
+ "note": "Example custom table for a financial-services deployment: cardholder data only at the top level, inside information and privileged material apart. Test data and a documentation example; it makes no deployment compliant with anything.",
+ "levels": [{"name": "PUBLIC"}, {"name": "INTERNAL"}, {"name": "CONFIDENTIAL"}, {"name": "RESTRICTED"}],
+ "groups": [
+  {"name": "handling", "kind": "require", "position": 1, "minLevel": "CONFIDENTIAL", "tokens": [
+   {"token": "PCI", "minLevel": "RESTRICTED", "reason": "cardholder data under PCI DSS v4.0"},
+   {"token": "MNPI", "reason": "material non-public information and SOX-sensitive financial reporting"},
+   {"token": "PII", "reason": "personal data under privacy laws"},
+   {"token": "PRIVILEGED", "reason": "attorney-client privilege and work product"}
+  ]},
+  {"name": "deal", "kind": "require", "position": 2, "minLevel": "RESTRICTED", "prefix": "DEAL-"}
+ ]
+}

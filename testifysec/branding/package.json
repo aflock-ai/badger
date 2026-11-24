@@ -1,0 +1,10 @@
+{
+  "name": "@testifysec/branding",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./product": "./product.ts",
+    "./product.json": "./product.json"
+  }
+}

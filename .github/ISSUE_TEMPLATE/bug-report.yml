@@ -1,0 +1,42 @@
+name: Bug report
+description: Something in Badger does not behave as documented
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not report security vulnerabilities here. Use the private reporting link on the issue chooser or see SECURITY.md.
+        Do not paste credentials, customer data or internal hostnames. Redact logs first.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: dropdown
+    id: build
+    attributes:
+      label: Build
+      options:
+        - Managed (built with --managed)
+        - Unmanaged
+        - A testifysec/ service (gateway, broker, model broker, portal, connectors)
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Commit or version
+      description: Output of `badger --version`, or the commit you built.
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Operating system and architecture
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce

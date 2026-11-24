@@ -1,0 +1,65 @@
+{
+ "_comment": "The connector pod's naming rules (cmd/conngw: connector names; internal/launch: plugin flag names), and what admission v3 (testifysec/managed/profile-v3.ts) and the portal (portal/internal/profile) accept for a connector that is not in the release catalog. Each side's tests read this file, so the rules cannot drift apart.",
+ "names": {
+  "accept": [
+   "servicenow-1",
+   "slack",
+   "a",
+   "a1",
+   "ab-c",
+   "a-",
+   "a--b",
+   "constructor",
+   "tostring",
+   "jira",
+   "gitlab",
+   "confluence",
+   "abbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  ],
+  "refuse": [
+   "",
+   "Jira",
+   "1slack",
+   "-a",
+   "a_b",
+   "a.b",
+   "a/b",
+   "../x",
+   "__proto__",
+   "abbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+   "service now",
+   "slack\n",
+   "\u00e9t\u00e9",
+   "a:b",
+   "toString"
+  ]
+ },
+ "flags": {
+  "accept": [
+   "auth",
+   "marking-prefix",
+   "region",
+   "a",
+   "x-1",
+   "constructor",
+   "fggggggggggggggggggggggggggggggg"
+  ],
+  "refuse": [
+   "",
+   "base-url",
+   "token-file",
+   "classification",
+   "ca-file",
+   "enable-writes",
+   "insecure-loopback-http",
+   "manifest",
+   "Auth",
+   "1a",
+   "a_b",
+   "a.b",
+   "__proto__",
+   "fgggggggggggggggggggggggggggggggg",
+   "a b"
+  ]
+ }
+}

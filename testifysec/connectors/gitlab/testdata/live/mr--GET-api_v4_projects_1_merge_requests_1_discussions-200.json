@@ -1,0 +1,405 @@
+{
+ "request": {
+  "method": "GET",
+  "path": "/api/v4/projects/1/merge_requests/1/discussions",
+  "query": {
+   "page": [
+    "1"
+   ],
+   "per_page": [
+    "20"
+   ]
+  },
+  "body": null
+ },
+ "status": 200,
+ "headers": {
+  "Content-Type": "application/json",
+  "Link": "<http://service.example.invalid/api/v4/projects/1/merge_requests/1/discussions?id=1&noteable_id=1&page=1&per_page=20>; rel=\"first\", <http://service.example.invalid/api/v4/projects/1/merge_requests/1/discussions?id=1&noteable_id=1&page=1&per_page=20>; rel=\"last\"",
+  "X-Page": "1",
+  "X-Per-Page": "20",
+  "X-Total": "7",
+  "X-Total-Pages": "1"
+ },
+ "body": [
+  {
+   "id": "cd6aa16fdc8939bdd6b712f7eb26f1ade35487cd",
+   "individual_note": false,
+   "resolvable": true,
+   "resolved": true,
+   "notes": [
+    {
+     "id": 6,
+     "type": "DiffNote",
+     "body": "on an added line",
+     "author": {
+      "id": 2,
+      "username": "dev1",
+      "public_email": null,
+      "name": "Dana Devlin",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://www.gravatar.com/avatar/56e6f55377019c11a416767ee00eebbb8b1ad92ebbaaccbfd6ab5315d95492c3?s=80&d=identicon",
+      "web_url": "http://service.example.invalid/dev1"
+     },
+     "created_at": "2026-10-22T18:30:02.949Z",
+     "updated_at": "2026-10-22T18:30:04.166Z",
+     "system": false,
+     "noteable_id": 1,
+     "noteable_type": "MergeRequest",
+     "project_id": 1,
+     "commit_id": null,
+     "position": {
+      "base_sha": "689de419f271ed063f56a310d7a0c4e3c659dc77",
+      "start_sha": "689de419f271ed063f56a310d7a0c4e3c659dc77",
+      "head_sha": "8823c5099c50bc37153b33d13d59916440787b9f",
+      "old_path": "src/app.go",
+      "new_path": "src/app.go",
+      "position_type": "text",
+      "old_line": null,
+      "new_line": 4,
+      "line_range": null
+     },
+     "resolvable": true,
+     "resolved": true,
+     "resolved_by": {
+      "id": 1,
+      "username": "root",
+      "public_email": null,
+      "name": "Administrator",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://www.gravatar.com/avatar/6a3931fa0afe96c29f23c056f06b6b7f90aaee6078ea2656b1f60c040a3e85c0?s=80&d=identicon",
+      "web_url": "http://service.example.invalid/root"
+     },
+     "resolved_at": "2026-10-22T18:30:04.166Z",
+     "suggestions": [],
+     "confidential": false,
+     "internal": false,
+     "imported": false,
+     "imported_from": "none",
+     "noteable_iid": 1,
+     "commands_changes": {}
+    },
+    {
+     "id": 11,
+     "type": "DiffNote",
+     "body": "reply on the added line",
+     "author": {
+      "id": 1,
+      "username": "root",
+      "public_email": null,
+      "name": "Administrator",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://www.gravatar.com/avatar/6a3931fa0afe96c29f23c056f06b6b7f90aaee6078ea2656b1f60c040a3e85c0?s=80&d=identicon",
+      "web_url": "http://service.example.invalid/root"
+     },
+     "created_at": "2026-10-22T18:30:03.981Z",
+     "updated_at": "2026-10-22T18:30:04.166Z",
+     "system": false,
+     "noteable_id": 1,
+     "noteable_type": "MergeRequest",
+     "project_id": 1,
+     "commit_id": null,
+     "position": {
+      "base_sha": "689de419f271ed063f56a310d7a0c4e3c659dc77",
+      "start_sha": "689de419f271ed063f56a310d7a0c4e3c659dc77",
+      "head_sha": "8823c5099c50bc37153b33d13d59916440787b9f",
+      "old_path": "src/app.go",
+      "new_path": "src/app.go",
+      "position_type": "text",
+      "old_line": null,
+      "new_line": 4,
+      "line_range": null
+     },
+     "resolvable": true,
+     "resolved": true,
+     "resolved_by": {
+      "id": 1,
+      "username": "root",
+      "public_email": null,
+      "name": "Administrator",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://www.gravatar.com/avatar/6a3931fa0afe96c29f23c056f06b6b7f90aaee6078ea2656b1f60c040a3e85c0?s=80&d=identicon",
+      "web_url": "http://service.example.invalid/root"
+     },
+     "resolved_at": "2026-10-22T18:30:04.166Z",
+     "suggestions": [],
+     "confidential": false,
+     "internal": false,
+     "imported": false,
+     "imported_from": "none",
+     "noteable_iid": 1,
+     "commands_changes": {}
+    }
+   ]
+  },
+  {
+   "id": "a22b64a0701d2258c1eb0b779a53b3015d8410d7",
+   "individual_note": false,
+   "resolvable": true,
+   "resolved": false,
+   "notes": [
+    {
+     "id": 7,
+     "type": "DiffNote",
+     "body": "on a deleted line",
+     "author": {
+      "id": 2,
+      "username": "dev1",
+      "public_email": null,
+      "name": "Dana Devlin",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://www.gravatar.com/avatar/56e6f55377019c11a416767ee00eebbb8b1ad92ebbaaccbfd6ab5315d95492c3?s=80&d=identicon",
+      "web_url": "http://service.example.invalid/dev1"
+     },
+     "created_at": "2026-10-22T18:30:03.179Z",
+     "updated_at": "2026-10-22T18:30:03.179Z",
+     "system": false,
+     "noteable_id": 1,
+     "noteable_type": "MergeRequest",
+     "project_id": 1,
+     "commit_id": null,
+     "position": {
+      "base_sha": "689de419f271ed063f56a310d7a0c4e3c659dc77",
+      "start_sha": "689de419f271ed063f56a310d7a0c4e3c659dc77",
+      "head_sha": "8823c5099c50bc37153b33d13d59916440787b9f",
+      "old_path": "src/app.go",
+      "new_path": "src/app.go",
+      "position_type": "text",
+      "old_line": 5,
+      "new_line": null,
+      "line_range": null
+     },
+     "resolvable": true,
+     "resolved": false,
+     "resolved_by": null,
+     "resolved_at": null,
+     "suggestions": [],
+     "confidential": false,
+     "internal": false,
+     "imported": false,
+     "imported_from": "none",
+     "noteable_iid": 1,
+     "commands_changes": {}
+    }
+   ]
+  },
+  {
+   "id": "f50b73385f8d4c5925affffc345d0dbf5e504e61",
+   "individual_note": false,
+   "resolvable": true,
+   "resolved": false,
+   "notes": [
+    {
+     "id": 8,
+     "type": "DiffNote",
+     "body": "on an unchanged line",
+     "author": {
+      "id": 2,
+      "username": "dev1",
+      "public_email": null,
+      "name": "Dana Devlin",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://www.gravatar.com/avatar/56e6f55377019c11a416767ee00eebbb8b1ad92ebbaaccbfd6ab5315d95492c3?s=80&d=identicon",
+      "web_url": "http://service.example.invalid/dev1"
+     },
+     "created_at": "2026-10-22T18:30:03.369Z",
+     "updated_at": "2026-10-22T18:30:03.369Z",
+     "system": false,
+     "noteable_id": 1,
+     "noteable_type": "MergeRequest",
+     "project_id": 1,
+     "commit_id": null,
+     "position": {
+      "base_sha": "689de419f271ed063f56a310d7a0c4e3c659dc77",
+      "start_sha": "689de419f271ed063f56a310d7a0c4e3c659dc77",
+      "head_sha": "8823c5099c50bc37153b33d13d59916440787b9f",
+      "old_path": "src/app.go",
+      "new_path": "src/app.go",
+      "position_type": "text",
+      "old_line": 3,
+      "new_line": 3,
+      "line_range": null
+     },
+     "resolvable": true,
+     "resolved": false,
+     "resolved_by": null,
+     "resolved_at": null,
+     "suggestions": [],
+     "confidential": false,
+     "internal": false,
+     "imported": false,
+     "imported_from": "none",
+     "noteable_iid": 1,
+     "commands_changes": {}
+    }
+   ]
+  },
+  {
+   "id": "736a305a8d0c7fd26ee3401658c8264c6ee55f27",
+   "individual_note": false,
+   "resolvable": true,
+   "resolved": false,
+   "notes": [
+    {
+     "id": 9,
+     "type": "DiffNote",
+     "body": "on a new file",
+     "author": {
+      "id": 2,
+      "username": "dev1",
+      "public_email": null,
+      "name": "Dana Devlin",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://www.gravatar.com/avatar/56e6f55377019c11a416767ee00eebbb8b1ad92ebbaaccbfd6ab5315d95492c3?s=80&d=identicon",
+      "web_url": "http://service.example.invalid/dev1"
+     },
+     "created_at": "2026-10-22T18:30:03.561Z",
+     "updated_at": "2026-10-22T18:30:03.561Z",
+     "system": false,
+     "noteable_id": 1,
+     "noteable_type": "MergeRequest",
+     "project_id": 1,
+     "commit_id": null,
+     "position": {
+      "base_sha": "689de419f271ed063f56a310d7a0c4e3c659dc77",
+      "start_sha": "689de419f271ed063f56a310d7a0c4e3c659dc77",
+      "head_sha": "8823c5099c50bc37153b33d13d59916440787b9f",
+      "old_path": "src/new.go",
+      "new_path": "src/new.go",
+      "position_type": "text",
+      "old_line": null,
+      "new_line": 3,
+      "line_range": null
+     },
+     "resolvable": true,
+     "resolved": false,
+     "resolved_by": null,
+     "resolved_at": null,
+     "suggestions": [],
+     "confidential": false,
+     "internal": false,
+     "imported": false,
+     "imported_from": "none",
+     "noteable_iid": 1,
+     "commands_changes": {}
+    }
+   ]
+  },
+  {
+   "id": "bb088ec2e29d47ff01268badceed9d06d8f3bfb9",
+   "individual_note": false,
+   "resolvable": true,
+   "resolved": false,
+   "notes": [
+    {
+     "id": 10,
+     "type": "DiscussionNote",
+     "body": "general MR thread",
+     "author": {
+      "id": 2,
+      "username": "dev1",
+      "public_email": null,
+      "name": "Dana Devlin",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://www.gravatar.com/avatar/56e6f55377019c11a416767ee00eebbb8b1ad92ebbaaccbfd6ab5315d95492c3?s=80&d=identicon",
+      "web_url": "http://service.example.invalid/dev1"
+     },
+     "created_at": "2026-10-22T18:30:03.704Z",
+     "updated_at": "2026-10-22T18:30:03.704Z",
+     "system": false,
+     "noteable_id": 1,
+     "noteable_type": "MergeRequest",
+     "project_id": 1,
+     "resolvable": true,
+     "resolved": false,
+     "resolved_by": null,
+     "resolved_at": null,
+     "confidential": false,
+     "internal": false,
+     "imported": false,
+     "imported_from": "none",
+     "noteable_iid": 1,
+     "commands_changes": {}
+    }
+   ]
+  },
+  {
+   "id": "f101f4c75bbf075b2eccebbe72843d43f0b739b6",
+   "individual_note": true,
+   "resolvable": false,
+   "notes": [
+    {
+     "id": 12,
+     "type": null,
+     "body": "restored source branch `lvb-change`",
+     "author": {
+      "id": 1,
+      "username": "root",
+      "public_email": null,
+      "name": "Administrator",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://www.gravatar.com/avatar/6a3931fa0afe96c29f23c056f06b6b7f90aaee6078ea2656b1f60c040a3e85c0?s=80&d=identicon",
+      "web_url": "http://service.example.invalid/root"
+     },
+     "created_at": "2026-10-22T18:30:06.276Z",
+     "updated_at": "2026-10-22T18:30:06.313Z",
+     "system": true,
+     "noteable_id": 1,
+     "noteable_type": "MergeRequest",
+     "project_id": 1,
+     "resolvable": false,
+     "confidential": false,
+     "internal": false,
+     "imported": false,
+     "imported_from": "none",
+     "noteable_iid": 1,
+     "commands_changes": {}
+    }
+   ]
+  },
+  {
+   "id": "8a0c2798d51ae933c1a61edf164e4a672a8a87a8",
+   "individual_note": true,
+   "resolvable": false,
+   "notes": [
+    {
+     "id": 25,
+     "type": null,
+     "body": "livebench MR note",
+     "author": {
+      "id": 2,
+      "username": "dev1",
+      "public_email": null,
+      "name": "Dana Devlin",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://www.gravatar.com/avatar/56e6f55377019c11a416767ee00eebbb8b1ad92ebbaaccbfd6ab5315d95492c3?s=80&d=identicon",
+      "web_url": "http://service.example.invalid/dev1"
+     },
+     "created_at": "2026-10-22T18:50:00.604Z",
+     "updated_at": "2026-10-22T18:50:00.604Z",
+     "system": false,
+     "noteable_id": 1,
+     "noteable_type": "MergeRequest",
+     "project_id": 1,
+     "resolvable": false,
+     "confidential": false,
+     "internal": false,
+     "imported": false,
+     "imported_from": "none",
+     "noteable_iid": 1,
+     "commands_changes": {}
+    }
+   ]
+  }
+ ]
+}

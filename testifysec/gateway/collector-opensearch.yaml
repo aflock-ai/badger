@@ -1,0 +1,42 @@
+# Deployment template: pin and validate the approved collector-contrib build.
+extensions:
+  bearertokenauth/gateway:
+    filename: /run/secrets/gateway-collector-token
+  basicauth/opensearch:
+    client_auth:
+      username: ${env:OPENSEARCH_USERNAME}
+      password: ${env:OPENSEARCH_PASSWORD}
+  file_storage/audit:
+    directory: /var/lib/otelcol/audit
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4318
+        tls:
+          cert_file: /run/secrets/collector.crt
+          key_file: /run/secrets/collector.key
+        auth:
+          authenticator: bearertokenauth/gateway
+exporters:
+  opensearch/audit:
+    http:
+      endpoint: https://opensearch.example.test:9200
+      auth:
+        authenticator: basicauth/opensearch
+    logs_index: hardened-code-audit
+    mapping:
+      mode: ss4o
+    sending_queue:
+      enabled: true
+      queue_size: 1000
+      storage: file_storage/audit
+    retry_on_failure:
+      enabled: true
+      max_elapsed_time: 0s
+service:
+  extensions: [bearertokenauth/gateway, basicauth/opensearch, file_storage/audit]
+  pipelines:
+    logs:
+      receivers: [otlp]
+      exporters: [opensearch/audit]

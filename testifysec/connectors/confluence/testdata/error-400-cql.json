@@ -1,0 +1,10 @@
+{
+ "statusCode": 400,
+ "data": {
+  "authorized": false,
+  "valid": true,
+  "errors": [],
+  "successful": false
+ },
+ "message": "Could not parse cql : text ~~ \"x\""
+}

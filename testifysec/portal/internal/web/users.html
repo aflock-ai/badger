@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Badger portal: users</title>
+<style>{{.Theme}}</style>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="./">Badger portal</a><nav><a href="./">Profiles</a><a href="users" aria-current="page">Users</a></nav><span class="spacer"></span><span class="who">Signed in as {{.Principal.Name}} ({{.Principal.Role}})</span></header>
+<main class="page">
+<h1>Users</h1>
+<p class="muted">Changes are made through the API and every one is audited.</p>
+<div class="card table-wrap">
+<table>
+<tr><th>Subject</th><th>Status</th><th>Role</th><th>Deployments</th></tr>
+{{range .Users}}<tr><td>{{.Subject}}</td><td><span class="badge">{{.Status}}</span></td><td>{{if .Role}}{{.Role}}{{else}}<span class="muted">none</span>{{end}}</td><td>{{range .Deployments}}<code>{{.}}</code> {{end}}</td></tr>
+{{else}}<tr><td colspan="4" class="muted">No users yet.</td></tr>{{end}}
+</table>
+</div>
+<h2 style="margin-top:var(--sp-6)">Waiting for an approver</h2>
+<div class="card table-wrap">
+<table>
+<tr><th>Request</th><th>Kind</th><th>User</th><th>Role</th><th>Requested by</th></tr>
+{{range .Pending}}<tr><td><code>{{.ID}}</code></td><td>{{.Kind}}</td><td>{{with index $.Subjects .UserID}}{{.}}{{else}}<code>{{.UserID}}</code>{{end}}</td><td>{{.Role}}</td><td>{{.RequestedBy}}</td></tr>
+{{else}}<tr><td colspan="5" class="muted">Nothing pending.</td></tr>{{end}}
+</table>
+</div>
+</main>
+</body>
+</html>

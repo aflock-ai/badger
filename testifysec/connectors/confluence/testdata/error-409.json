@@ -1,0 +1,10 @@
+{
+ "statusCode": 409,
+ "data": {
+  "authorized": false,
+  "valid": true,
+  "errors": [],
+  "successful": false
+ },
+ "message": "Version must be incremented on update. Current version is: 8"
+}

@@ -1,0 +1,16 @@
+{
+ "schema": "badger.marking-policy/v1",
+ "note": "Example policy for a healthcare deployment on the healthcare example table. Test data and a documentation example.",
+ "scheme": {"file": "healthcare.json", "sha256": "sha256:ee65f45f9c3921396094a588424ac5b3810c1d133a9a6da8c2b6459d47c42acd"},
+ "dataFlow": {
+  "classify": {
+   "RESTRICTED//PHI": ["connector:ehr/*"],
+   "INTERNAL": ["connector:tickets/*", "connector:wiki/*", "model:general"],
+   "RESTRICTED//PHI/PII": ["model:clinical"]
+  },
+  "default": "refuse",
+  "flowRules": [
+   {"deny": "SUD->model:**", "message": "substance use disorder records never go to a model"}
+  ]
+ }
+}

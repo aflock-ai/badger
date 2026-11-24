@@ -1,0 +1,81 @@
+{
+  "steps": [
+    {
+      "name": "push-gate",
+      "mode": "run",
+      "argv": [
+        "jade",
+        "test",
+        "--ring",
+        "local"
+      ],
+      "argv_pin": "exact",
+      "attestors": [
+        "git",
+        "alps-evidence",
+        "base-ancestry"
+      ],
+      "product_exclude_glob": "{**/,}{node_modules,dist,.bin,.jade}/**",
+      "release": "judge-push-gate"
+    },
+    {
+      "name": "gomod-drift",
+      "mode": "run",
+      "argv": [
+        "jade",
+        "gomod-drift",
+        "check"
+      ],
+      "argv_pin": "exact",
+      "attestors": [
+        "git",
+        "alps-evidence"
+      ],
+      "product_exclude_glob": "{**/,}{node_modules,dist,.bin,.jade}/**",
+      "release": "legacy"
+    },
+    {
+      "name": "push-tests",
+      "mode": "attest",
+      "argv": [],
+      "argv_pin": "exact",
+      "attestors": [
+        "git",
+        "alps-evidence",
+        "base-ancestry"
+      ],
+      "product_exclude_glob": "{**/,}{node_modules,dist,.bin,.jade}/**",
+      "release": "legacy"
+    },
+    {
+      "name": "push-metadata",
+      "mode": "attest",
+      "argv": [],
+      "argv_pin": "exact",
+      "attestors": [
+        "git",
+        "alps-evidence"
+      ],
+      "product_exclude_glob": "",
+      "release": "legacy"
+    },
+    {
+      "name": "local-ring",
+      "mode": "run",
+      "argv": [
+        "jade",
+        "test",
+        "--ring",
+        "local"
+      ],
+      "argv_pin": "exact",
+      "attestors": [
+        "git",
+        "alps-evidence",
+        "base-ancestry"
+      ],
+      "product_exclude_glob": "{**/,}{node_modules,dist,.bin,.jade}/**",
+      "release": "legacy"
+    }
+  ]
+}

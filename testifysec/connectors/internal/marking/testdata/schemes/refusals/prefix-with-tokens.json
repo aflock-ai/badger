@@ -1,0 +1,1 @@
+{"schema": "badger.marking-scheme/v1", "name": "t", "version": 1, "levels": [{"name": "LOW"}, {"name": "MID"}, {"name": "HIGH"}], "groups": [{"name": "tags", "kind": "require", "position": 1, "prefix": "P-", "tokens": [{"token": "A"}]}]}

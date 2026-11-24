@@ -1,0 +1,2 @@
+[{"old_path":"cmd/signer/main.go","new_path":"cmd/signer/main.go","a_mode":"100644","b_mode":"100644","new_file":false,"renamed_file":false,"deleted_file":false,"too_large":false,"collapsed":false,"diff":"@@ -40,3 +40,3 @@\n-\tkeyID := \"old\"\n+\tkeyID := \"new\"\n"},
+ {"old_path":"testdata/blob.bin","new_path":"testdata/blob.bin","new_file":true,"renamed_file":false,"deleted_file":false,"too_large":true,"collapsed":false,"diff":""}]
