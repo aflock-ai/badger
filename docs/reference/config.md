@@ -49,6 +49,7 @@ Component `gateway`.
 | `administratorIdentity` | `bool` (optional) |  | AdministratorIdentity runs a v3 gateway with no platform: the agent is who the administrator provisioned (the signed profile it admits and the provider credential it holds), and every endpoint is HTTPS. For a network that cannot reach the TestifySec platform. | `Config.AdministratorIdentity` in `testifysec/gateway/config.go` |
 | `platformConfigFile` | `string` (optional) |  |  | `Config.PlatformConfigFile` in `testifysec/gateway/config.go` |
 | `signedProfileFile` | `string` (optional) |  |  | `Config.SignedProfileFile` in `testifysec/gateway/config.go` |
+| `profileFile` | `string` (optional) |  | ProfileFile is an unsigned profile (models.go): read by the gateway itself, pinned by profileDigest, with no admission executable. Gateway v3 only, instead of signedProfileFile. | `Config.ProfileFile` in `testifysec/gateway/config.go` |
 | `admissionExecutable` | `string` (optional) |  |  | `Config.AdmissionExecutable` in `testifysec/gateway/config.go` |
 | `admissionSha256` | `string` (optional) |  |  | `Config.AdmissionSHA256` in `testifysec/gateway/config.go` |
 | `backend` | `*BackendAssignment` (optional) |  |  | `Config.Backend` in `testifysec/gateway/config.go` |
@@ -136,6 +137,15 @@ Component `badger-broker`.
 | `routes[].price_usd_per_million.cached_input` | `float64` |  |  | `Price.CachedInput` in `testifysec/model-broker/config.go` |
 | `routes[].price_usd_per_million.output` | `float64` |  |  | `Price.Output` in `testifysec/model-broker/config.go` |
 | `routes[].max_call_usd` | `*float64` (optional) |  | MaxCallUSD is the most one call can cost. A call in flight is counted at it against a quota, so calls running at once cannot pass a limit together; without it a call in flight counts as unbounded and a limited principal's next call is refused while it runs. | `RouteConfig.MaxCallUSD` in `testifysec/model-broker/config.go` |
+| `seed_limits` | `*SeedLimits` (optional) | `for` | SeedLimits are the first defaults for the limits an admin sets in the portal (quota.go): each field is applied once, when the broker first sees it, and never over an admin's value. | `FileConfig.SeedLimits` in `testifysec/model-broker/config.go` |
+| `seed_limits.default_usd` | `*float64` |  |  | `SeedLimits.DefaultUSD` in `testifysec/model-broker/quota.go` |
+| `seed_limits.defaults` | `Limits` |  |  | `SeedLimits.Defaults` in `testifysec/model-broker/quota.go` |
+| `seed_limits.defaults.daily_usd` | `*float64` (optional) |  |  | `Limits.DailyUSD` in `testifysec/model-broker/quota.go` |
+| `seed_limits.defaults.call_usd` | `*float64` (optional) |  |  | `Limits.CallUSD` in `testifysec/model-broker/quota.go` |
+| `seed_limits.defaults.steps` | `*int` (optional) |  |  | `Limits.Steps` in `testifysec/model-broker/quota.go` |
+| `seed_limits.defaults.context` | `*int` (optional) |  |  | `Limits.Context` in `testifysec/model-broker/quota.go` |
+| `seed_limits.defaults.output` | `*int` (optional) |  |  | `Limits.Output` in `testifysec/model-broker/quota.go` |
+| `seed_limits.defaults.timeout_seconds` | `*int` (optional) |  |  | `Limits.TimeoutSeconds` in `testifysec/model-broker/quota.go` |
 | `admin_ui` | `struct` |  | AdminUI is display-only chrome for the admin console: the product name in its header and links to sibling admin pages (each href a same-origin path). It grants nothing. | `FileConfig.AdminUI` in `testifysec/model-broker/config.go` |
 | `admin_ui.brand` | `string` |  |  | `FileConfig.AdminUI` in `testifysec/model-broker/config.go` |
 | `admin_ui.nav` | `[]NavLink` |  |  | `FileConfig.AdminUI` in `testifysec/model-broker/config.go` |
